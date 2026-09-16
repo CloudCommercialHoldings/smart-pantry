@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000012C95B00100000001 /* SmartPantryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00100000001 /* SmartPantryApp.swift */; };
+		A10000012C95B00200000002 /* StorageLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00200000002 /* StorageLocation.swift */; };
+		A10000012C95B00300000003 /* ItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00300000003 /* ItemCategory.swift */; };
+		A10000012C95B00400000004 /* PantryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00400000004 /* PantryItem.swift */; };
+		A10000012C95B00500000005 /* ReceiptRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00500000005 /* ReceiptRecord.swift */; };
+		A10000012C95B00600000006 /* SpendingAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00600000006 /* SpendingAnalytics.swift */; };
+		A10000012C95B00700000007 /* OCRCorrectionRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00700000007 /* OCRCorrectionRule.swift */; };
+		A10000012C95B00800000008 /* AbbreviationNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00800000008 /* AbbreviationNormalizer.swift */; };
+		A10000012C95B00900000009 /* ExpiryDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A00900000009 /* ExpiryDatabaseService.swift */; };
+		A10000012C95B01000000010 /* ReceiptOCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01000000010 /* ReceiptOCRService.swift */; };
+		A10000012C95B01100000011 /* ReceiptParserEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01100000011 /* ReceiptParserEngine.swift */; };
+		A10000012C95B01200000012 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01200000012 /* NotificationService.swift */; };
+		A10000012C95B01300000013 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01300000013 /* StorageService.swift */; };
+		A10000012C95B01400000014 /* PantryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01400000014 /* PantryViewModel.swift */; };
+		A10000012C95B01500000015 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01500000015 /* ScannerViewModel.swift */; };
+		A10000012C95B01600000016 /* ReceiptHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01600000016 /* ReceiptHistoryViewModel.swift */; };
+		A10000012C95B01700000017 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01700000017 /* AnalyticsViewModel.swift */; };
+		A10000012C95B01800000018 /* PantryItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01800000018 /* PantryItemRowView.swift */; };
+		A10000012C95B01900000019 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01900000019 /* ItemDetailView.swift */; };
+		A10000012C95B02000000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02000000020 /* AddEditItemView.swift */; };
+		A10000012C95B02100000021 /* PantryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02100000021 /* PantryListView.swift */; };
+		A10000012C95B02200000022 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02200000022 /* DocumentCameraView.swift */; };
+		A10000012C95B02300000023 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02300000023 /* BarcodeScannerView.swift */; };
+		A10000012C95B02400000024 /* PhotoPickerScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02400000024 /* PhotoPickerScannerView.swift */; };
+		A10000012C95B02500000025 /* ReceiptReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02500000025 /* ReceiptReviewView.swift */; };
+		A10000012C95B02600000026 /* ScannerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02600000026 /* ScannerSelectionView.swift */; };
+		A10000012C95B02700000027 /* ReceiptFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02700000027 /* ReceiptFilterView.swift */; };
+		A10000012C95B02800000028 /* ReceiptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02800000028 /* ReceiptDetailView.swift */; };
+		A10000012C95B02900000029 /* ReceiptHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02900000029 /* ReceiptHistoryView.swift */; };
+		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03000000030 /* CategoryBreakdownChart.swift */; };
+		A10000012C95B03100000031 /* SpendingAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03100000031 /* SpendingAnalyticsView.swift */; };
+		A10000012C95B03200000032 /* ExpiringSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03200000032 /* ExpiringSoonView.swift */; };
+		A10000012C95B03300000033 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03300000033 /* MainTabView.swift */; };
+		A10000012C95B03400000034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03400000034 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10000012C95A00000000000 /* SmartPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000012C95A00100000001 /* SmartPantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPantryApp.swift; sourceTree = "<group>"; };
+		A10000012C95A00200000002 /* StorageLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLocation.swift; sourceTree = "<group>"; };
+		A10000012C95A00300000003 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
+		A10000012C95A00400000004 /* PantryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItem.swift; sourceTree = "<group>"; };
+		A10000012C95A00500000005 /* ReceiptRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptRecord.swift; sourceTree = "<group>"; };
+		A10000012C95A00600000006 /* SpendingAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalytics.swift; sourceTree = "<group>"; };
+		A10000012C95A00700000007 /* OCRCorrectionRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRCorrectionRule.swift; sourceTree = "<group>"; };
+		A10000012C95A00800000008 /* AbbreviationNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbbreviationNormalizer.swift; sourceTree = "<group>"; };
+		A10000012C95A00900000009 /* ExpiryDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiryDatabaseService.swift; sourceTree = "<group>"; };
+		A10000012C95A01000000010 /* ReceiptOCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptOCRService.swift; sourceTree = "<group>"; };
+		A10000012C95A01100000011 /* ReceiptParserEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptParserEngine.swift; sourceTree = "<group>"; };
+		A10000012C95A01200000012 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		A10000012C95A01300000013 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		A10000012C95A01400000014 /* PantryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewModel.swift; sourceTree = "<group>"; };
+		A10000012C95A01500000015 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		A10000012C95A01600000016 /* ReceiptHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewModel.swift; sourceTree = "<group>"; };
+		A10000012C95A01700000017 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
+		A10000012C95A01800000018 /* PantryItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemRowView.swift; sourceTree = "<group>"; };
+		A10000012C95A01900000019 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		A10000012C95A02000000020 /* AddEditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditItemView.swift; sourceTree = "<group>"; };
+		A10000012C95A02100000021 /* PantryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListView.swift; sourceTree = "<group>"; };
+		A10000012C95A02200000022 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
+		A10000012C95A02300000023 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		A10000012C95A02400000024 /* PhotoPickerScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerScannerView.swift; sourceTree = "<group>"; };
+		A10000012C95A02500000025 /* ReceiptReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptReviewView.swift; sourceTree = "<group>"; };
+		A10000012C95A02600000026 /* ScannerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerSelectionView.swift; sourceTree = "<group>"; };
+		A10000012C95A02700000027 /* ReceiptFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFilterView.swift; sourceTree = "<group>"; };
+		A10000012C95A02800000028 /* ReceiptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailView.swift; sourceTree = "<group>"; };
+		A10000012C95A02900000029 /* ReceiptHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryView.swift; sourceTree = "<group>"; };
+		A10000012C95A0300000030 /* CategoryBreakdownChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBreakdownChart.swift; sourceTree = "<group>"; };
+		A10000012C95A03100000031 /* SpendingAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalyticsView.swift; sourceTree = "<group>"; };
+		A10000012C95A03200000032 /* ExpiringSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringSoonView.swift; sourceTree = "<group>"; };
+		A10000012C95A03300000033 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		A10000012C95A03400000034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		A10000012C95A03500000035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App/Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000012C95C00000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000012C95D00000000000 = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95D00100000001 /* SmartPantry */,
+				A10000012C95D00200000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000012C95D00100000001 /* SmartPantry */ = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95A00100000001 /* SmartPantryApp.swift */,
+				A10000012C95A03500000035 /* Info.plist */,
+				A10000012C95D00300000003 /* Models */,
+				A10000012C95D00400000004 /* Services */,
+				A10000012C95D00500000005 /* ViewModels */,
+				A10000012C95D00600000006 /* Views */,
+				A10000012C95A03400000034 /* Assets.xcassets */,
+			);
+			path = SmartPantry;
+			sourceTree = "<group>";
+		};
+		A10000012C95D00200000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95A00000000000 /* SmartPantry.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A10000012C95D00300000003 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95A00200000002 /* StorageLocation.swift */,
+				A10000012C95A00300000003 /* ItemCategory.swift */,
+				A10000012C95A00400000004 /* PantryItem.swift */,
+				A10000012C95A00500000005 /* ReceiptRecord.swift */,
+				A10000012C95A00600000006 /* SpendingAnalytics.swift */,
+				A10000012C95A00700000007 /* OCRCorrectionRule.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A10000012C95D00400000004 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95A00800000008 /* AbbreviationNormalizer.swift */,
+				A10000012C95A00900000009 /* ExpiryDatabaseService.swift */,
+				A10000012C95A01000000010 /* ReceiptOCRService.swift */,
+				A10000012C95A01100000011 /* ReceiptParserEngine.swift */,
+				A10000012C95A01200000012 /* NotificationService.swift */,
+				A10000012C95A01300000013 /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A10000012C95D00500000005 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95A01400000014 /* PantryViewModel.swift */,
+				A10000012C95A01500000015 /* ScannerViewModel.swift */,
+				A10000012C95A01600000016 /* ReceiptHistoryViewModel.swift */,
+				A10000012C95A01700000017 /* AnalyticsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A10000012C95D00600000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A10000012C95A03300000033 /* MainTabView.swift */,
+				A10000012C95A01800000018 /* PantryItemRowView.swift */,
+				A10000012C95A01900000019 /* ItemDetailView.swift */,
+				A10000012C95A0200000020 /* AddEditItemView.swift */,
+				A10000012C95A02100000021 /* PantryListView.swift */,
+				A10000012C95A02200000022 /* DocumentCameraView.swift */,
+				A10000012C95A02300000023 /* BarcodeScannerView.swift */,
+				A10000012C95A02400000024 /* PhotoPickerScannerView.swift */,
+				A10000012C95A02500000025 /* ReceiptReviewView.swift */,
+				A10000012C95A02600000026 /* ScannerSelectionView.swift */,
+				A10000012C95A02700000027 /* ReceiptFilterView.swift */,
+				A10000012C95A02800000028 /* ReceiptDetailView.swift */,
+				A10000012C95A02900000029 /* ReceiptHistoryView.swift */,
+				A10000012C95A0300000030 /* CategoryBreakdownChart.swift */,
+				A10000012C95A03100000031 /* SpendingAnalyticsView.swift */,
+				A10000012C95A03200000032 /* ExpiringSoonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000012C95E00000000000 /* SmartPantry */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000012C95F00000000000 /* Build configuration list for PBXNativeTarget "SmartPantry" */;
+			buildPhases = (
+				A10000012C95G00000000000 /* Sources */,
+				A10000012C95C00000000000 /* Frameworks */,
+				A10000012C95H00000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartPantry;
+			productName = SmartPantry;
+			productReference = A10000012C95A00000000000 /* SmartPantry.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000012C95I00000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A10000012C95E00000000000 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000012C95J00000000000 /* Build configuration list for PBXProject "SmartPantry" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10000012C95D00000000000;
+			productRefGroup = A10000012C95D00200000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000012C95E00000000000 /* SmartPantry */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000012C95H00000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000012C95B03400000034 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000012C95G00000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000012C95B00100000001 /* SmartPantryApp.swift in Sources */,
+				A10000012C95B00200000002 /* StorageLocation.swift in Sources */,
+				A10000012C95B00300000003 /* ItemCategory.swift in Sources */,
+				A10000012C95B00400000004 /* PantryItem.swift in Sources */,
+				A10000012C95B00500000005 /* ReceiptRecord.swift in Sources */,
+				A10000012C95B00600000006 /* SpendingAnalytics.swift in Sources */,
+				A10000012C95B00700000007 /* OCRCorrectionRule.swift in Sources */,
+				A10000012C95B00800000008 /* AbbreviationNormalizer.swift in Sources */,
+				A10000012C95B00900000009 /* ExpiryDatabaseService.swift in Sources */,
+				A10000012C95B01000000010 /* ReceiptOCRService.swift in Sources */,
+				A10000012C95B01100000011 /* ReceiptParserEngine.swift in Sources */,
+				A10000012C95B01200000012 /* NotificationService.swift in Sources */,
+				A10000012C95B01300000013 /* StorageService.swift in Sources */,
+				A10000012C95B01400000014 /* PantryViewModel.swift in Sources */,
+				A10000012C95B01500000015 /* ScannerViewModel.swift in Sources */,
+				A10000012C95B01600000016 /* ReceiptHistoryViewModel.swift in Sources */,
+				A10000012C95B01700000017 /* AnalyticsViewModel.swift in Sources */,
+				A10000012C95B01800000018 /* PantryItemRowView.swift in Sources */,
+				A10000012C95B01900000019 /* ItemDetailView.swift in Sources */,
+				A10000012C95B0200000020 /* AddEditItemView.swift in Sources */,
+				A10000012C95B02100000021 /* PantryListView.swift in Sources */,
+				A10000012C95B02200000022 /* DocumentCameraView.swift in Sources */,
+				A10000012C95B02300000023 /* BarcodeScannerView.swift in Sources */,
+				A10000012C95B02400000024 /* PhotoPickerScannerView.swift in Sources */,
+				A10000012C95B02500000025 /* ReceiptReviewView.swift in Sources */,
+				A10000012C95B02600000026 /* ScannerSelectionView.swift in Sources */,
+				A10000012C95B02700000027 /* ReceiptFilterView.swift in Sources */,
+				A10000012C95B02800000028 /* ReceiptDetailView.swift in Sources */,
+				A10000012C95B02900000029 /* ReceiptHistoryView.swift in Sources */,
+				A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */,
+				A10000012C95B03100000031 /* SpendingAnalyticsView.swift in Sources */,
+				A10000012C95B03200000032 /* ExpiringSoonView.swift in Sources */,
+				A10000012C95B03300000033 /* MainTabView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A10000012C95J00100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_PROTUTILS = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A10000012C95J00200000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_PROTUTILS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A10000012C95K00100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SmartPantry/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A10000012C95K00200000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SmartPantry/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000012C95J00000000000 /* Build configuration list for PBXProject "SmartPantry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000012C95J00100000001 /* Debug */,
+				A10000012C95J00200000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000012C95F00000000000 /* Build configuration list for PBXNativeTarget "SmartPantry" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000012C95K00100000001 /* Debug */,
+				A10000012C95K00200000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000012C95I00000000000 /* Project object */;
+}
