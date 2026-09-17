@@ -1,0 +1,160 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Pantry/AddEditItemView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Add Pantry Item",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit Item",
+        "location": {
+          "startingColumn": 70,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "Item Information",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quantity & Price",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "Dates",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "Item Name (e.g. Milk, Bananas, Chicken)",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Storage Location",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quantity",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Qty",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unit",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Purchase Price ($)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "0.00",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "Purchase Date",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Expiration Date",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "Optional notes...",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 79
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 92
+        }
+      }
+    ]
+  },
+  "version": 1
+}

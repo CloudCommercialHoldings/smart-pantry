@@ -1,0 +1,80 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/ReceiptHistory/ReceiptDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "View Raw OCR Text",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "Total Paid",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Subtotal: $%.2f • Tax: $%.2f",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Payment: %@",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scanned Receipt Image",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Purchased Items (%lld)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ • Qty: %.1f",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 87
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,48 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Scanner/BarcodeScannerView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Align Barcode within Frame",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 16
+        }
+      },
+      {
+        "comment": "",
+        "key": "Simulator Test Options",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scan Milk (078742351829)",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scan Chicken (021000612239)",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 60
+        }
+      }
+    ]
+  },
+  "version": 1
+}

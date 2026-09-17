@@ -1,0 +1,80 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Analytics/SpendingAnalyticsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Spending & Analytics",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 123
+        }
+      },
+      {
+        "comment": "",
+        "key": "Food Waste Savings",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "%.0f%% Saved",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Monthly Spending History",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld trips",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 75
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "Top Grocery Stores",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld visits",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 108
+        }
+      }
+    ]
+  },
+  "version": 1
+}

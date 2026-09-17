@@ -1,0 +1,24 @@
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Analytics/CategoryBreakdownChart.swift":
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/CategoryBreakdownChart.swiftdeps"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/CategoryBreakdownChart.dia"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/CategoryBreakdownChart.o"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/CategoryBreakdownChart.swiftconstvalues"
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/CategoryBreakdownChart.d"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Analytics/SpendingAnalyticsView.swift":
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/SpendingAnalyticsView.o"
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/SpendingAnalyticsView.d"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/SpendingAnalyticsView.dia"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/SpendingAnalyticsView.swiftconstvalues"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/SpendingAnalyticsView.swiftdeps"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/ReceiptHistory/ReceiptHistoryView.swift":
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptHistoryView.o"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptHistoryView.dia"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptHistoryView.swiftdeps"
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptHistoryView.d"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptHistoryView.swiftconstvalues"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/ReceiptHistory/ReceiptDetailView.swift":
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptDetailView.d"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptDetailView.swiftdeps"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptDetailView.dia"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptDetailView.o"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug-maccatalyst/SmartPantry.build/Objects-normal/arm64/ReceiptDetailView.swiftconstvalues"

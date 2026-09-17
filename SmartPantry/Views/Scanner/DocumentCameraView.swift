@@ -1,4 +1,6 @@
 import SwiftUI
+
+#if !targetEnvironment(macCatalyst)
 import VisionKit
 
 public struct DocumentCameraView: UIViewControllerRepresentable {
@@ -50,3 +52,38 @@ public struct DocumentCameraView: UIViewControllerRepresentable {
         }
     }
 }
+#else
+public struct DocumentCameraView: View {
+    @Environment(\.presentationMode) var presentationMode
+    let onScanCompleted: (UIImage) -> Void
+    let onCancel: () -> Void
+    
+    public init(onScanCompleted: @escaping (UIImage) -> Void, onCancel: @escaping () -> Void) {
+        self.onScanCompleted = onScanCompleted
+        self.onCancel = onCancel
+    }
+    
+    public var body: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "camera.viewfinder")
+                .font(.system(size: 60))
+                .foregroundColor(.blue)
+            Text("Camera Scanner")
+                .font(.title2.weight(.bold))
+            Text("Document camera is available on iOS devices with a camera. On Mac, use the Photo Library option or test with the built-in instant demo receipts!")
+                .font(.body)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding(.horizontal)
+            Button("Dismiss") {
+                onCancel()
+                presentationMode.wrappedValue.dismiss()
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(.top, 10)
+        }
+        .padding(32)
+        .frame(minWidth: 350, minHeight: 280)
+    }
+}
+#endif

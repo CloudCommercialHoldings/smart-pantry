@@ -1,0 +1,48 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Scanner/ScannerSelectionView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Scanner",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 99
+        }
+      },
+      {
+        "comment": "",
+        "key": "Smart Grocery Scanner",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scan paper receipts or barcodes to automatically log items and estimate expiration dates.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "Instant Demo Receipts (Simulator)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tap any sample store receipt to test Vision OCR, abbreviation normalization, confidence flagging, and duplicate detection:",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 74
+        }
+      }
+    ]
+  },
+  "version": 1
+}

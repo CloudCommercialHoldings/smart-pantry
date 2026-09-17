@@ -1,0 +1,72 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/ReceiptHistory/ReceiptFilterView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Filter Receipts",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Date Range",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 10
+        }
+      },
+      {
+        "comment": "",
+        "key": "Filter by Store",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "Filter by Category",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time Period",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 11
+        }
+      },
+      {
+        "comment": "",
+        "key": "All Stores",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 19
+        }
+      },
+      {
+        "comment": "",
+        "key": "All Categories",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Done",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 66
+        }
+      }
+    ]
+  },
+  "version": 1
+}

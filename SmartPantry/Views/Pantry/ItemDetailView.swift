@@ -209,7 +209,7 @@ struct DetailRow: View {
                 .foregroundColor(.secondary)
             Spacer()
             Text(value)
-                .weight(.semibold)
+                .fontWeight(.semibold)
         }
         .font(.subheadline)
     }

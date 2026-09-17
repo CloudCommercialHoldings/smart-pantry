@@ -1,0 +1,240 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Scanner/ReceiptReviewView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Receipt Intelligence",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 143
+        }
+      },
+      {
+        "comment": "",
+        "key": "Duplicate Receipt Detected",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "A receipt from %@ with total $%.2f already exists in your history.",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Subtotal: $%.2f",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tax: $%.2f",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Total Amount",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 61
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld item(s) flagged for user confirmation.",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "Extracted Line Items (%lld)",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add Items to Smart Pantry",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "Automatically calculates expiry dates and schedules alerts.",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save Receipt & Import Items",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "RAW: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 218
+        }
+      },
+      {
+        "comment": "",
+        "key": "• Qty: %.1f",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 228
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 238
+        }
+      },
+      {
+        "comment": "",
+        "key": "Correct Receipt Item",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 312
+        }
+      },
+      {
+        "comment": "",
+        "key": "Raw OCR Text",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "Normalized Product Name",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 282
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category & Storage Location",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 286
+        }
+      },
+      {
+        "comment": "",
+        "key": "Price & Quantity",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 300
+        }
+      },
+      {
+        "comment": "",
+        "key": "Product Name",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 283
+        }
+      },
+      {
+        "comment": "",
+        "key": "Category",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 287
+        }
+      },
+      {
+        "comment": "",
+        "key": "Storage Location",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 293
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quantity: %.1f",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 309
+        }
+      },
+      {
+        "comment": "",
+        "key": "Price ($)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 302
+        }
+      },
+      {
+        "comment": "",
+        "key": "0.00",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 304
+        }
+      },
+      {
+        "comment": "",
+        "key": "Cancel",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 316
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 319
+        }
+      }
+    ]
+  },
+  "version": 1
+}

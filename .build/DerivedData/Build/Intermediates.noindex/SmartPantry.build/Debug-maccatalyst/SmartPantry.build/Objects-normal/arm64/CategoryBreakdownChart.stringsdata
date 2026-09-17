@@ -1,0 +1,32 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Analytics/CategoryBreakdownChart.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Category Breakdown",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 8
+        }
+      },
+      {
+        "comment": "",
+        "key": "%.1f%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "$%.2f",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 41
+        }
+      }
+    ]
+  },
+  "version": 1
+}

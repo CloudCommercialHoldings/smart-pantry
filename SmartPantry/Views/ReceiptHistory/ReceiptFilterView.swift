@@ -4,7 +4,7 @@ public struct ReceiptFilterView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: ReceiptHistoryViewModel
     
-    var body: some View {
+    public var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Date Range")) {

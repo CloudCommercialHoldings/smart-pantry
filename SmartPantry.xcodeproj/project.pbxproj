@@ -26,7 +26,7 @@
 		A10000012C95B01700000017 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01700000017 /* AnalyticsViewModel.swift */; };
 		A10000012C95B01800000018 /* PantryItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01800000018 /* PantryItemRowView.swift */; };
 		A10000012C95B01900000019 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01900000019 /* ItemDetailView.swift */; };
-		A10000012C95B02000000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02000000020 /* AddEditItemView.swift */; };
+		A10000012C95B0200000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0200000020 /* AddEditItemView.swift */; };
 		A10000012C95B02100000021 /* PantryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02100000021 /* PantryListView.swift */; };
 		A10000012C95B02200000022 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02200000022 /* DocumentCameraView.swift */; };
 		A10000012C95B02300000023 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02300000023 /* BarcodeScannerView.swift */; };
@@ -36,7 +36,7 @@
 		A10000012C95B02700000027 /* ReceiptFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02700000027 /* ReceiptFilterView.swift */; };
 		A10000012C95B02800000028 /* ReceiptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02800000028 /* ReceiptDetailView.swift */; };
 		A10000012C95B02900000029 /* ReceiptHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02900000029 /* ReceiptHistoryView.swift */; };
-		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03000000030 /* CategoryBreakdownChart.swift */; };
+		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0300000030 /* CategoryBreakdownChart.swift */; };
 		A10000012C95B03100000031 /* SpendingAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03100000031 /* SpendingAnalyticsView.swift */; };
 		A10000012C95B03200000032 /* ExpiringSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03200000032 /* ExpiringSoonView.swift */; };
 		A10000012C95B03300000033 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03300000033 /* MainTabView.swift */; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		A10000012C95A00000000000 /* SmartPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A10000012C95A00100000001 /* SmartPantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPantryApp.swift; sourceTree = "<group>"; };
+		A10000012C95A00100000001 /* SmartPantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/SmartPantryApp.swift; sourceTree = "<group>"; };
 		A10000012C95A00200000002 /* StorageLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLocation.swift; sourceTree = "<group>"; };
 		A10000012C95A00300000003 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		A10000012C95A00400000004 /* PantryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItem.swift; sourceTree = "<group>"; };
@@ -62,21 +62,21 @@
 		A10000012C95A01500000015 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		A10000012C95A01600000016 /* ReceiptHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryViewModel.swift; sourceTree = "<group>"; };
 		A10000012C95A01700000017 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
-		A10000012C95A01800000018 /* PantryItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItemRowView.swift; sourceTree = "<group>"; };
-		A10000012C95A01900000019 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
-		A10000012C95A02000000020 /* AddEditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditItemView.swift; sourceTree = "<group>"; };
-		A10000012C95A02100000021 /* PantryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryListView.swift; sourceTree = "<group>"; };
-		A10000012C95A02200000022 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCameraView.swift; sourceTree = "<group>"; };
-		A10000012C95A02300000023 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
-		A10000012C95A02400000024 /* PhotoPickerScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerScannerView.swift; sourceTree = "<group>"; };
-		A10000012C95A02500000025 /* ReceiptReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptReviewView.swift; sourceTree = "<group>"; };
-		A10000012C95A02600000026 /* ScannerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerSelectionView.swift; sourceTree = "<group>"; };
-		A10000012C95A02700000027 /* ReceiptFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFilterView.swift; sourceTree = "<group>"; };
-		A10000012C95A02800000028 /* ReceiptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailView.swift; sourceTree = "<group>"; };
-		A10000012C95A02900000029 /* ReceiptHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistoryView.swift; sourceTree = "<group>"; };
-		A10000012C95A0300000030 /* CategoryBreakdownChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBreakdownChart.swift; sourceTree = "<group>"; };
-		A10000012C95A03100000031 /* SpendingAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalyticsView.swift; sourceTree = "<group>"; };
-		A10000012C95A03200000032 /* ExpiringSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiringSoonView.swift; sourceTree = "<group>"; };
+		A10000012C95A01800000018 /* PantryItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/PantryItemRowView.swift; sourceTree = "<group>"; };
+		A10000012C95A01900000019 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/ItemDetailView.swift; sourceTree = "<group>"; };
+		A10000012C95A0200000020 /* AddEditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/AddEditItemView.swift; sourceTree = "<group>"; };
+		A10000012C95A02100000021 /* PantryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/PantryListView.swift; sourceTree = "<group>"; };
+		A10000012C95A02200000022 /* DocumentCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner/DocumentCameraView.swift; sourceTree = "<group>"; };
+		A10000012C95A02300000023 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner/BarcodeScannerView.swift; sourceTree = "<group>"; };
+		A10000012C95A02400000024 /* PhotoPickerScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner/PhotoPickerScannerView.swift; sourceTree = "<group>"; };
+		A10000012C95A02500000025 /* ReceiptReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner/ReceiptReviewView.swift; sourceTree = "<group>"; };
+		A10000012C95A02600000026 /* ScannerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanner/ScannerSelectionView.swift; sourceTree = "<group>"; };
+		A10000012C95A02700000027 /* ReceiptFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistory/ReceiptFilterView.swift; sourceTree = "<group>"; };
+		A10000012C95A02800000028 /* ReceiptDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistory/ReceiptDetailView.swift; sourceTree = "<group>"; };
+		A10000012C95A02900000029 /* ReceiptHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptHistory/ReceiptHistoryView.swift; sourceTree = "<group>"; };
+		A10000012C95A0300000030 /* CategoryBreakdownChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics/CategoryBreakdownChart.swift; sourceTree = "<group>"; };
+		A10000012C95A03100000031 /* SpendingAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics/SpendingAnalyticsView.swift; sourceTree = "<group>"; };
+		A10000012C95A03200000032 /* ExpiringSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expiry/ExpiringSoonView.swift; sourceTree = "<group>"; };
 		A10000012C95A03300000033 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		A10000012C95A03400000034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		A10000012C95A03500000035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App/Info.plist; sourceTree = "<group>"; };
@@ -366,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -381,9 +382,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -392,6 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -407,9 +410,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

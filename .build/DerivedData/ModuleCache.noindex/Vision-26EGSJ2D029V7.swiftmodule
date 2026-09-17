@@ -1,0 +1,232 @@
+---
+path:            '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/15.2/Vision.swiftmodule/arm64e-apple-ios-macabi.swiftmodule'
+dependencies:
+  - mtime:           1733472590000000000
+    path:            '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/15.2/Vision.swiftmodule/arm64e-apple-ios-macabi.swiftmodule'
+    size:            402032
+  - mtime:           1731214860000000000
+    path:            'System/iOSSupport/usr/lib/swift/Swift.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            2050808
+    sdk_relative:    true
+  - mtime:           1731215502000000000
+    path:            'usr/include/_time.apinotes'
+    size:            1132
+    sdk_relative:    true
+  - mtime:           1731227095000000000
+    path:            'usr/include/ObjectiveC.apinotes'
+    size:            11147
+    sdk_relative:    true
+  - mtime:           1731199229000000000
+    path:            'usr/include/Dispatch.apinotes'
+    size:            19
+    sdk_relative:    true
+  - mtime:           1731199540000000000
+    path:            'usr/include/XPC.apinotes'
+    size:            123
+    sdk_relative:    true
+  - mtime:           1731219474000000000
+    path:            'System/Library/Frameworks/Security.framework/Headers/Security.apinotes'
+    size:            162
+    sdk_relative:    true
+  - mtime:           1731228215000000000
+    path:            'System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes'
+    size:            81098
+    sdk_relative:    true
+  - mtime:           1731221110000000000
+    path:            'System/Library/Frameworks/CoreAudioTypes.framework/Headers/CoreAudioTypes.apinotes'
+    size:            1519
+    sdk_relative:    true
+  - mtime:           1731227987000000000
+    path:            'System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes'
+    size:            52901
+    sdk_relative:    true
+  - mtime:           1729835551000000000
+    path:            'System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes'
+    size:            80245
+    sdk_relative:    true
+  - mtime:           1731645472000000000
+    path:            'System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes'
+    size:            65704
+    sdk_relative:    true
+  - mtime:           1731220908000000000
+    path:            'System/Library/Frameworks/UniformTypeIdentifiers.framework/Headers/UniformTypeIdentifiers.apinotes'
+    size:            1666
+    sdk_relative:    true
+  - mtime:           1731221156000000000
+    path:            'System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes'
+    size:            114
+    sdk_relative:    true
+  - mtime:           1731223081000000000
+    path:            'System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes'
+    size:            215
+    sdk_relative:    true
+  - mtime:           1731228760000000000
+    path:            'System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes'
+    size:            7428
+    sdk_relative:    true
+  - mtime:           1731235954000000000
+    path:            'System/Library/Frameworks/AVFAudio.framework/Headers/AVFAudio.apinotes'
+    size:            8309
+    sdk_relative:    true
+  - mtime:           1731646876000000000
+    path:            'System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes'
+    size:            98450
+    sdk_relative:    true
+  - mtime:           1731215915000000000
+    path:            'usr/lib/swift/_errno.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            3710
+    sdk_relative:    true
+  - mtime:           1731215935000000000
+    path:            'usr/lib/swift/_time.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            959
+    sdk_relative:    true
+  - mtime:           1731215945000000000
+    path:            'usr/lib/swift/_signal.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            995
+    sdk_relative:    true
+  - mtime:           1731215951000000000
+    path:            'usr/lib/swift/sys_time.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            996
+    sdk_relative:    true
+  - mtime:           1731215937000000000
+    path:            'usr/lib/swift/_stdio.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            1421
+    sdk_relative:    true
+  - mtime:           1731215958000000000
+    path:            'usr/lib/swift/unistd.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            691
+    sdk_relative:    true
+  - mtime:           1731215916000000000
+    path:            'usr/lib/swift/_math.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            16102
+    sdk_relative:    true
+  - mtime:           1731214924000000000
+    path:            'System/iOSSupport/usr/lib/swift/_Builtin_float.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            4196
+    sdk_relative:    true
+  - mtime:           1731215979000000000
+    path:            'usr/lib/swift/Darwin.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            19773
+    sdk_relative:    true
+  - mtime:           1731216305000000000
+    path:            'System/iOSSupport/usr/lib/swift/_Concurrency.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            248685
+    sdk_relative:    true
+  - mtime:           1731216798000000000
+    path:            'System/iOSSupport/usr/lib/swift/_StringProcessing.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            22662
+    sdk_relative:    true
+  - mtime:           1731217513000000000
+    path:            'System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            172312
+    sdk_relative:    true
+  - mtime:           1731217449000000000
+    path:            'usr/lib/swift/ObjectiveC.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            6440
+    sdk_relative:    true
+  - mtime:           1731217641000000000
+    path:            'usr/lib/swift/Dispatch.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            56576
+    sdk_relative:    true
+  - mtime:           1731217830000000000
+    path:            'usr/lib/swift/CoreFoundation.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            22701
+    sdk_relative:    true
+  - mtime:           1731217818000000000
+    path:            'usr/lib/swift/XPC.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            33151
+    sdk_relative:    true
+  - mtime:           1731218046000000000
+    path:            'usr/lib/swift/IOKit.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            3493
+    sdk_relative:    true
+  - mtime:           1731216339000000000
+    path:            'System/iOSSupport/usr/lib/swift/Observation.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            3738
+    sdk_relative:    true
+  - mtime:           1731217484000000000
+    path:            'usr/lib/swift/System.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            94362
+    sdk_relative:    true
+  - mtime:           1731218706000000000
+    path:            'System/Library/Frameworks/Foundation.framework/Modules/Foundation.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            998794
+    sdk_relative:    true
+  - mtime:           1731219215000000000
+    path:            'usr/lib/swift/CoreMIDI.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            15984
+    sdk_relative:    true
+  - mtime:           1731222085000000000
+    path:            'usr/lib/swift/CoreAudio.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            9857
+    sdk_relative:    true
+  - mtime:           1731221038000000000
+    path:            'System/Library/Frameworks/CoreGraphics.framework/Modules/CoreGraphics.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            52897
+    sdk_relative:    true
+  - mtime:           1731219309000000000
+    path:            'usr/lib/swift/Metal.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            24941
+    sdk_relative:    true
+  - mtime:           1731220317000000000
+    path:            'usr/lib/swift/CoreMedia.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            133170
+    sdk_relative:    true
+  - mtime:           1731217482000000000
+    path:            'usr/lib/swift/simd.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            229347
+    sdk_relative:    true
+  - mtime:           1731220329000000000
+    path:            'usr/lib/swift/QuartzCore.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            1669
+    sdk_relative:    true
+  - mtime:           1731219848000000000
+    path:            'usr/lib/swift/UniformTypeIdentifiers.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            20454
+    sdk_relative:    true
+  - mtime:           1731220696000000000
+    path:            'usr/lib/swift/AVFoundation.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            72756
+    sdk_relative:    true
+  - mtime:           1731215502000000000
+    path:            'usr/include/os.apinotes'
+    size:            1658
+    sdk_relative:    true
+  - mtime:           1731647122000000000
+    path:            'System/Library/Frameworks/Accelerate.framework/Headers/Accelerate.apinotes'
+    size:            1599
+    sdk_relative:    true
+  - mtime:           1731217852000000000
+    path:            'usr/lib/swift/os.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            107894
+    sdk_relative:    true
+  - mtime:           1731220341000000000
+    path:            'usr/lib/swift/Accelerate.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            861411
+    sdk_relative:    true
+  - mtime:           1731230309000000000
+    path:            'System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes'
+    size:            36883
+    sdk_relative:    true
+  - mtime:           1731220164000000000
+    path:            'usr/lib/swift/CoreImage.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            580
+    sdk_relative:    true
+  - mtime:           1731220451000000000
+    path:            'System/Library/Frameworks/CoreML.framework/Headers/CoreML.apinotes'
+    size:            3026
+    sdk_relative:    true
+  - mtime:           1731220702000000000
+    path:            'System/Library/Frameworks/CoreML.framework/Modules/CoreML.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            68392
+    sdk_relative:    true
+  - mtime:           1731221136000000000
+    path:            'System/Library/Frameworks/Vision.framework/Headers/Vision.apinotes'
+    size:            3449
+    sdk_relative:    true
+  - mtime:           1731221215000000000
+    path:            'System/Library/Frameworks/Vision.framework/Modules/Vision.swiftmodule/arm64e-apple-ios-macabi.swiftinterface'
+    size:            138937
+    sdk_relative:    true
+version:         1
+...

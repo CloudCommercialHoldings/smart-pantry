@@ -1,0 +1,32 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Scanner/PhotoPickerScannerView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Select Receipt Image",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 17
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose a photo of a store receipt from your library for on-device Vision OCR text recognition.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Choose Photo from Library",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 31
+        }
+      }
+    ]
+  },
+  "version": 1
+}

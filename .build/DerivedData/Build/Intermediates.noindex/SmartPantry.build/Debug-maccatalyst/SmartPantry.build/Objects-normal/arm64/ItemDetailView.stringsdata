@@ -1,0 +1,128 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Pantry/ItemDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Delete Item?",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "Extend Expiration Date:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Expiration Status",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "Expires On",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "Time Remaining",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld Days",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 79
+        }
+      },
+      {
+        "comment": "",
+        "key": "+3 Days",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "+7 Days",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 98
+        }
+      },
+      {
+        "comment": "",
+        "key": "+1 Month",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 104
+        }
+      },
+      {
+        "comment": "",
+        "key": "Details",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 117
+        }
+      },
+      {
+        "comment": "",
+        "key": "Notes",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mark as Consumed",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 149
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete Item",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 161
+        }
+      },
+      {
+        "comment": "",
+        "key": "Edit",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 179
+        }
+      },
+      {
+        "comment": "",
+        "key": "Delete",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 188
+        }
+      }
+    ]
+  },
+  "version": 1
+}
