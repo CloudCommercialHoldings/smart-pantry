@@ -89,7 +89,6 @@ public class ReceiptParserEngine {
                 
                 if trimmedDesc.count >= 2 && !isHeaderFooterWord(trimmedDesc) {
                     // Check if learned user rule exists for this raw description
-                    let upperDesc = trimmedDesc.uppercased()
                     let (normName, category, location, confidence) = processItemIntelligence(
                         rawDescription: trimmedDesc,
                         savedRules: savedRules

@@ -5,6 +5,8 @@ public struct SpendingAnalyticsView: View {
     @ObservedObject var subService = SubscriptionService.shared
     @State private var showPaywall: Bool = false
     
+    public init() {}
+    
     public var body: some View {
         NavigationView {
             ScrollView {
@@ -131,14 +133,22 @@ public struct SpendingAnalyticsView: View {
     }
 }
 
-struct ProToolCard: View {
+public struct ProToolCard: View {
     let icon: String
     let title: String
     let subtitle: String
     let color: Color
     let isProLocked: Bool
     
-    var body: some View {
+    public init(icon: String, title: String, subtitle: String, color: Color, isProLocked: Bool) {
+        self.icon = icon
+        self.title = title
+        self.subtitle = subtitle
+        self.color = color
+        self.isProLocked = isProLocked
+    }
+    
+    public var body: some View {
         HStack(spacing: 14) {
             ZStack {
                 RoundedRectangle(cornerRadius: 12)
@@ -181,5 +191,74 @@ struct ProToolCard: View {
         .padding(14)
         .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
+    }
+}
+
+public struct StatMetricCard: View {
+    let title: String
+    let value: String
+    let subtitle: String
+    let icon: String
+    let color: Color
+    
+    public init(title: String, value: String, subtitle: String, icon: String, color: Color) {
+        self.title = title
+        self.value = value
+        self.subtitle = subtitle
+        self.icon = icon
+        self.color = color
+    }
+    
+    public var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Image(systemName: icon)
+                    .font(.title3)
+                    .foregroundColor(color)
+                Spacer()
+            }
+            
+            Text(title)
+                .font(.caption.weight(.medium))
+                .foregroundColor(.secondary)
+            
+            Text(value)
+                .font(.system(size: 24, weight: .bold, design: .rounded))
+                .foregroundColor(.primary)
+            
+            Text(subtitle)
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
+        .cornerRadius(16)
+    }
+}
+
+public struct WasteMetricItem: View {
+    let title: String
+    let value: String
+    let subValue: String
+    
+    public init(title: String, value: String, subValue: String) {
+        self.title = title
+        self.value = value
+        self.subValue = subValue
+    }
+    
+    public var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                .font(.caption)
+                .foregroundColor(.secondary)
+            Text(value)
+                .font(.subheadline.weight(.bold))
+            Text(subValue)
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

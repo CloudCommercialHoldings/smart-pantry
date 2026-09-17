@@ -4,6 +4,8 @@ public struct ReceiptHistoryView: View {
     @StateObject var viewModel = ReceiptHistoryViewModel()
     @State private var showFilterSheet: Bool = false
     
+    public init() {}
+    
     public var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -89,10 +91,14 @@ public struct ReceiptHistoryView: View {
     }
 }
 
-struct ReceiptHistoryRow: View {
+public struct ReceiptHistoryRow: View {
     let receipt: ReceiptRecord
     
-    var body: some View {
+    public init(receipt: ReceiptRecord) {
+        self.receipt = receipt
+    }
+    
+    public var body: some View {
         HStack(spacing: 14) {
             ZStack {
                 RoundedRectangle(cornerRadius: 12)

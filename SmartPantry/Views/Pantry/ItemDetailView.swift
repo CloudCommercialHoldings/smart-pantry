@@ -8,6 +8,11 @@ public struct ItemDetailView: View {
     @State private var isEditing: Bool = false
     @State private var showDeleteConfirm: Bool = false
     
+    public init(viewModel: PantryViewModel, item: PantryItem) {
+        self.viewModel = viewModel
+        self._item = State(initialValue: item)
+    }
+    
     public var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -206,5 +211,26 @@ public struct ItemDetailView: View {
         if let updated = viewModel.filteredItems.first(where: { $0.id == item.id }) {
             self.item = updated
         }
+    }
+}
+
+public struct DetailRow: View {
+    let title: String
+    let value: String
+    
+    public init(title: String, value: String) {
+        self.title = title
+        self.value = value
+    }
+    
+    public var body: some View {
+        HStack {
+            Text(title)
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(value)
+                .weight(.semibold)
+        }
+        .font(.subheadline)
     }
 }

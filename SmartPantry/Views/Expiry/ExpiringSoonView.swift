@@ -3,6 +3,10 @@ import SwiftUI
 public struct ExpiringSoonView: View {
     @ObservedObject var viewModel: PantryViewModel
     
+    public init(viewModel: PantryViewModel) {
+        self.viewModel = viewModel
+    }
+    
     public var urgentItems: [PantryItem] {
         viewModel.filteredItems.filter { !$0.isConsumed && ($0.expiryStatus == .expiringSoon || $0.expiryStatus == .expired) }
             .sorted(by: { $0.expirationDate < $1.expirationDate })

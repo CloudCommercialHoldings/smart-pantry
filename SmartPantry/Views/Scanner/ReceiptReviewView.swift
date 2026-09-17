@@ -6,6 +6,10 @@ public struct ReceiptReviewView: View {
     
     @State private var editingItemIndex: Int? = nil
     
+    public init(viewModel: ScannerViewModel) {
+        self.viewModel = viewModel
+    }
+    
     public var body: some View {
         NavigationView {
             if let receipt = viewModel.currentReceipt {
@@ -177,18 +181,30 @@ public struct ReceiptReviewView: View {
     }
 }
 
-struct ReviewEditItem: Identifiable {
-    let id = UUID()
-    let index: Int
-    let item: ReceiptItem
+public struct ReviewEditItem: Identifiable {
+    public let id: UUID
+    public let index: Int
+    public let item: ReceiptItem
+    
+    public init(id: UUID = UUID(), index: Int, item: ReceiptItem) {
+        self.id = id
+        self.index = index
+        self.item = item
+    }
 }
 
-struct ReviewItemRow: View {
+public struct ReviewItemRow: View {
     let item: ReceiptItem
     let onEdit: () -> Void
     let onDelete: () -> Void
     
-    var body: some View {
+    public init(item: ReceiptItem, onEdit: @escaping () -> Void, onDelete: @escaping () -> Void) {
+        self.item = item
+        self.onEdit = onEdit
+        self.onDelete = onDelete
+    }
+    
+    public var body: some View {
         HStack(spacing: 12) {
             // Category Icon
             Image(systemName: item.category.iconName)
@@ -259,7 +275,7 @@ struct ReviewItemRow: View {
     }
 }
 
-struct EditReviewItemSheet: View {
+public struct EditReviewItemSheet: View {
     @Environment(\.presentationMode) var presentationMode
     let item: ReceiptItem
     let onSave: (String, ItemCategory, StorageLocation, Double, Double) -> Void
@@ -270,7 +286,12 @@ struct EditReviewItemSheet: View {
     @State private var priceString: String = ""
     @State private var quantity: Double = 1.0
     
-    var body: some View {
+    public init(item: ReceiptItem, onSave: @escaping (String, ItemCategory, StorageLocation, Double, Double) -> Void) {
+        self.item = item
+        self.onSave = onSave
+    }
+    
+    public var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Raw OCR Text")) {

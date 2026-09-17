@@ -6,6 +6,8 @@ public struct PaywallView: View {
     
     @State private var selectedPlanId: String = "annual"
     
+    public init() {}
+    
     let plans: [SubscriptionPlan] = [
         SubscriptionPlan(
             id: "annual",
@@ -160,12 +162,18 @@ public struct PaywallView: View {
     }
 }
 
-struct PaywallPlanCard: View {
+public struct PaywallPlanCard: View {
     let plan: SubscriptionPlan
     let isSelected: Bool
     let action: () -> Void
     
-    var body: some View {
+    public init(plan: SubscriptionPlan, isSelected: Bool, action: @escaping () -> Void) {
+        self.plan = plan
+        self.isSelected = isSelected
+        self.action = action
+    }
+    
+    public var body: some View {
         Button(action: action) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
@@ -220,13 +228,20 @@ struct PaywallPlanCard: View {
     }
 }
 
-struct ProFeatureRow: View {
+public struct ProFeatureRow: View {
     let icon: String
     let color: Color
     let title: String
     let subtitle: String
     
-    var body: some View {
+    public init(icon: String, color: Color, title: String, subtitle: String) {
+        self.icon = icon
+        self.color = color
+        self.title = title
+        self.subtitle = subtitle
+    }
+    
+    public var body: some View {
         HStack(spacing: 14) {
             ZStack {
                 Circle()

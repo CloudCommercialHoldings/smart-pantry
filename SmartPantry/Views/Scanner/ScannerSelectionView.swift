@@ -10,6 +10,8 @@ public struct ScannerSelectionView: View {
     @State private var showPhotoPicker: Bool = false
     @State private var showPaywall: Bool = false
     
+    public init() {}
+    
     public var body: some View {
         NavigationView {
             ScrollView {
@@ -200,6 +202,103 @@ public struct ScannerSelectionView: View {
             action()
         } else {
             showPaywall = true
+        }
+    }
+}
+
+public struct ScanOptionCard: View {
+    let title: String
+    let subtitle: String
+    let icon: String
+    let badgeText: String?
+    let color: Color
+    let action: () -> Void
+    
+    public init(title: String, subtitle: String, icon: String, badgeText: String?, color: Color, action: @escaping () -> Void) {
+        self.title = title
+        self.subtitle = subtitle
+        self.icon = icon
+        self.badgeText = badgeText
+        self.color = color
+        self.action = action
+    }
+    
+    public var body: some View {
+        Button(action: action) {
+            HStack(spacing: 16) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(color.opacity(0.15))
+                        .frame(width: 54, height: 54)
+                    
+                    Image(systemName: icon)
+                        .font(.system(size: 24, weight: .semibold))
+                        .foregroundColor(color)
+                }
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        Text(title)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        
+                        if let badge = badgeText {
+                            Text(badge)
+                                .font(.caption2.weight(.bold))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(color)
+                                .cornerRadius(6)
+                        }
+                    }
+                    
+                    Text(subtitle)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.leading)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.secondary)
+            }
+            .padding(16)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
+            .cornerRadius(16)
+        }
+    }
+}
+
+public struct DemoStoreButton: View {
+    let name: String
+    let icon: String
+    let color: Color
+    let action: () -> Void
+    
+    public init(name: String, icon: String, color: Color, action: @escaping () -> Void) {
+        self.name = name
+        self.icon = icon
+        self.color = color
+        self.action = action
+    }
+    
+    public var body: some View {
+        Button(action: action) {
+            VStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundColor(color)
+                Text(name)
+                    .font(.caption.weight(.semibold))
+                    .foregroundColor(.primary)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
+            .cornerRadius(12)
         }
     }
 }

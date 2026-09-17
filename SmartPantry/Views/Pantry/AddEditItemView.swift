@@ -19,6 +19,11 @@ public struct AddEditItemView: View {
     
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
     
+    public init(viewModel: PantryViewModel, itemToEdit: PantryItem? = nil) {
+        self.viewModel = viewModel
+        self.itemToEdit = itemToEdit
+    }
+    
     public var body: some View {
         NavigationView {
             Form {

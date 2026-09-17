@@ -4,6 +4,8 @@ public struct MainTabView: View {
     @StateObject private var storage = StorageService.shared
     @State private var selectedTab: Int = 0
     
+    public init() {}
+    
     public var expiringBadgeCount: Int {
         storage.pantryItems.filter { !$0.isConsumed && ($0.expiryStatus == .expiringSoon || $0.expiryStatus == .expired) }.count
     }
