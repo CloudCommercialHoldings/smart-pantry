@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 public struct AddEditItemView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -14,10 +15,61 @@ public struct AddEditItemView: View {
     @State private var purchaseDate: Date = Date()
     @State private var expirationDate: Date = Date()
     @State private var notes: String = ""
+    @State private var itemImageData: Data? = nil
+    
+    @State private var selectedPhotoItem: PhotosPickerItem? = nil
     
     public var body: some View {
         NavigationView {
             Form {
+                // Food Photo Attachment Section
+                Section(header: Text("Food Photo")) {
+                    HStack {
+                        if let data = itemImageData, let uiImage = UIImage(data: data) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 72, height: 72)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                        } else {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color(UIColor.tertiarySystemFill))
+                                    .frame(width: 72, height: 72)
+                                Image(systemName: "camera.fill")
+                                    .font(.title2)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 6) {
+                            PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
+                                Label(itemImageData == nil ? "Attach Food Photo" : "Change Photo", systemImage: "photo.badge.plus")
+                                    .font(.subheadline.weight(.semibold))
+                            }
+                            
+                            if itemImageData != nil {
+                                Button(role: .destructive) {
+                                    itemImageData = nil
+                                    selectedPhotoItem = nil
+                                } label: {
+                                    Text("Remove Photo")
+                                        .font(.caption)
+                                }
+                            }
+                        }
+                        .padding(.leading, 10)
+                    }
+                    .padding(.vertical, 4)
+                    .onChange(of: selectedPhotoItem) { newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                self.itemImageData = data
+                            }
+                        }
+                    }
+                }
+                
                 Section(header: Text("Item Information")) {
                     TextField("Item Name (e.g. Milk, Bananas, Chicken)", text: $name)
                         .onChange(of: name) { newName in
@@ -109,6 +161,7 @@ public struct AddEditItemView: View {
                     self.purchaseDate = item.purchaseDate
                     self.expirationDate = item.expirationDate
                     self.notes = item.notes ?? ""
+                    self.itemImageData = item.itemImageData
                 }
             }
         }
@@ -137,6 +190,7 @@ public struct AddEditItemView: View {
             existing.purchaseDate = purchaseDate
             existing.expirationDate = expirationDate
             existing.notes = notes.isEmpty ? nil : notes
+            existing.itemImageData = itemImageData
             viewModel.updateItem(existing)
         } else {
             let newItem = PantryItem(
@@ -149,7 +203,8 @@ public struct AddEditItemView: View {
                 purchasePrice: price,
                 purchaseDate: purchaseDate,
                 expirationDate: expirationDate,
-                notes: notes.isEmpty ? nil : notes
+                notes: notes.isEmpty ? nil : notes,
+                itemImageData: itemImageData
             )
             viewModel.addItem(newItem)
         }

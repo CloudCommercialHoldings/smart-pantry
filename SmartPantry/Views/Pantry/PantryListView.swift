@@ -2,12 +2,15 @@ import SwiftUI
 
 public struct PantryListView: View {
     @StateObject var viewModel = PantryViewModel()
+    @ObservedObject var subService = SubscriptionService.shared
+    
     @State private var showAddItemSheet: Bool = false
+    @State private var showPaywall: Bool = false
     
     public var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                // Top Expiry Status Banner
+                // Top Expiry Alert Summary Banner
                 if viewModel.expiringSoonCount > 0 || viewModel.expiredCount > 0 {
                     HStack(spacing: 12) {
                         Image(systemName: "exclamationmark.triangle.fill")
@@ -29,22 +32,22 @@ public struct PantryListView: View {
                             Text("Review")
                                 .font(.caption.weight(.bold))
                                 .foregroundColor(.white)
-                                .padding(.horizontal, 10)
+                                .padding(.horizontal, 12)
                                 .padding(.vertical, 6)
                                 .background(Color.orange)
-                                .cornerRadius(8)
+                                .cornerRadius(10)
                         }
                     }
-                    .padding()
+                    .padding(14)
                     .background(Color.orange.opacity(0.12))
-                    .cornerRadius(12)
+                    .cornerRadius(16)
                     .padding(.horizontal)
                     .padding(.top, 8)
                 }
                 
                 // Horizontal Location Selector Pills
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
+                    HStack(spacing: 10) {
                         FilterPill(
                             title: "All Items",
                             icon: "square.grid.2x2.fill",
@@ -66,7 +69,7 @@ public struct PantryListView: View {
                         }
                     }
                     .padding(.horizontal)
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 12)
                 }
                 
                 // Items List
@@ -74,14 +77,14 @@ public struct PantryListView: View {
                     VStack(spacing: 16) {
                         Spacer()
                         Image(systemName: "basket.fill")
-                            .font(.system(size: 48))
+                            .font(.system(size: 54))
                             .foregroundColor(.secondary)
                         
                         Text("No Pantry Items Found")
-                            .font(.headline)
+                            .font(.title3.weight(.bold))
                             .foregroundColor(.secondary)
                         
-                        Text("Scan a grocery receipt or tap '+' to add items.")
+                        Text("Scan a grocery receipt or tap '+' to add items with custom photos.")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -99,77 +102,76 @@ public struct PantryListView: View {
                         Spacer()
                     }
                 } else {
-                    List {
-                        ForEach(viewModel.filteredItems) { item in
-                            NavigationLink(destination: ItemDetailView(viewModel: viewModel, item: item)) {
-                                PantryItemRowView(
-                                    item: item,
-                                    onConsume: { viewModel.markConsumed(item) },
-                                    onExtend: { viewModel.extendExpiration(for: item, byDays: 3) }
-                                )
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            ForEach(viewModel.filteredItems) { item in
+                                NavigationLink(destination: ItemDetailView(viewModel: viewModel, item: item)) {
+                                    PantryItemRowView(
+                                        item: item,
+                                        onConsume: { viewModel.markConsumed(item) },
+                                        onExtend: { viewModel.extendExpiration(for: item, byDays: 3) }
+                                    )
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
-                        .onDelete { indexSet in
-                            for index in indexSet {
-                                let item = viewModel.filteredItems[index]
-                                viewModel.deleteItem(item)
-                            }
-                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 20)
                     }
-                    .listStyle(.plain)
                 }
             }
+            .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
             .navigationTitle("Smart Pantry")
             .searchable(text: $viewModel.searchText, prompt: "Search pantry items...")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Menu {
-                        Picker("Sort By", selection: $viewModel.sortOption) {
-                            ForEach(PantrySortOption.allCases) { option in
-                                Text(option.rawValue).tag(option)
+                    HStack(spacing: 8) {
+                        Button {
+                            showPaywall = true
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: subService.isPro ? "crown.fill" : "crown")
+                                    .font(.caption.weight(.bold))
+                                Text(subService.isPro ? "Pro" : "Upgrade")
+                                    .font(.caption.weight(.bold))
                             }
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(subService.isPro ? Color.purple : Color.orange)
+                            .cornerRadius(12)
                         }
-                    } label: {
-                        Image(systemName: "arrow.up.arrow.down.circle")
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showAddItemSheet = true
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title3)
+                    HStack(spacing: 12) {
+                        Menu {
+                            Picker("Sort By", selection: $viewModel.sortOption) {
+                                ForEach(PantrySortOption.allCases) { option in
+                                    Text(option.rawValue).tag(option)
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "arrow.up.arrow.down.circle")
+                                .font(.title3)
+                        }
+                        
+                        Button {
+                            showAddItemSheet = true
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title3)
+                        }
                     }
                 }
             }
             .sheet(isPresented: $showAddItemSheet) {
                 AddEditItemView(viewModel: viewModel)
             }
-        }
-    }
-}
-
-struct FilterPill: View {
-    let title: String
-    let icon: String
-    let isSelected: Bool
-    let color: Color
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.caption)
-                Text(title)
-                    .font(.subheadline.weight(.semibold))
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
-            .background(isSelected ? color : Color(UIColor.secondarySystemFill))
-            .foregroundColor(isSelected ? .white : .primary)
-            .cornerRadius(20)
         }
     }
 }

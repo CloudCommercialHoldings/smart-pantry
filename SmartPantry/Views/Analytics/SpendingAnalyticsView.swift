@@ -2,11 +2,43 @@ import SwiftUI
 
 public struct SpendingAnalyticsView: View {
     @StateObject var viewModel = AnalyticsViewModel()
+    @ObservedObject var subService = SubscriptionService.shared
+    @State private var showPaywall: Bool = false
     
     public var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
+                    // Pro Tools Navigation Cards
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Pro Tools & Reports")
+                            .font(.headline)
+                        
+                        NavigationLink(destination: WarrantyTrackerView()) {
+                            ProToolCard(
+                                icon: "shield.checkerboard",
+                                title: "Warranty Tracker",
+                                subtitle: "Track appliance warranties & claim notes",
+                                color: .red,
+                                isProLocked: !subService.isPro
+                            )
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        NavigationLink(destination: TaxReportView()) {
+                            ProToolCard(
+                                icon: "square.and.arrow.up.fill",
+                                title: "Tax & Expense Reports",
+                                subtitle: "Export deductible grocery tax summaries",
+                                color: .orange,
+                                isProLocked: !subService.isPro
+                            )
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+                    
                     // Overall Stats Summary Cards
                     HStack(spacing: 12) {
                         StatMetricCard(
@@ -26,7 +58,6 @@ public struct SpendingAnalyticsView: View {
                         )
                     }
                     .padding(.horizontal)
-                    .padding(.top, 8)
                     
                     // Food Waste Prevention Metrics Card
                     VStack(alignment: .leading, spacing: 12) {
@@ -88,94 +119,67 @@ public struct SpendingAnalyticsView: View {
                         .cornerRadius(16)
                         .padding(.horizontal)
                     }
-                    
-                    // Top Stores Leaderboard
-                    if !viewModel.storeLeaderboard.isEmpty {
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Top Grocery Stores")
-                                .font(.headline)
-                            
-                            ForEach(Array(viewModel.storeLeaderboard.prefix(5))) { store in
-                                HStack {
-                                    Image(systemName: "building.2.fill")
-                                        .foregroundColor(.accentColor)
-                                    Text(store.storeName)
-                                        .font(.subheadline.weight(.semibold))
-                                    Spacer()
-                                    Text("\(store.visitCount) visits")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                    Text("$\(store.totalSpent, specifier: "%.2f")")
-                                        .font(.subheadline.weight(.bold))
-                                }
-                                Divider()
-                            }
-                        }
-                        .padding()
-                        .background(Color(UIColor.secondarySystemGroupedBackground))
-                        .cornerRadius(16)
-                        .padding(.horizontal)
-                    }
                 }
                 .padding(.vertical)
             }
             .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
-            .navigationTitle("Spending & Analytics")
+            .navigationTitle("Analytics & Reports")
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+            }
         }
     }
 }
 
-struct StatMetricCard: View {
-    let title: String
-    let value: String
-    let subtitle: String
+struct ProToolCard: View {
     let icon: String
+    let title: String
+    let subtitle: String
     let color: Color
+    let isProLocked: Bool
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
+        HStack(spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(color.opacity(0.12))
+                    .frame(width: 44, height: 44)
+                
                 Image(systemName: icon)
                     .font(.title3)
                     .foregroundColor(color)
-                Spacer()
             }
             
-            Text(title)
-                .font(.caption.weight(.medium))
-                .foregroundColor(.secondary)
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: 6) {
+                    Text(title)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    
+                    if isProLocked {
+                        Text("PRO")
+                            .font(.caption2.weight(.bold))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.orange)
+                            .cornerRadius(6)
+                    }
+                }
+                
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
             
-            Text(value)
-                .font(.system(size: 24, weight: .bold, design: .rounded))
-                .foregroundColor(.primary)
+            Spacer()
             
-            Text(subtitle)
-                .font(.caption2)
+            Image(systemName: "chevron.right")
+                .font(.subheadline.weight(.semibold))
                 .foregroundColor(.secondary)
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
         .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
-    }
-}
-
-struct WasteMetricItem: View {
-    let title: String
-    let value: String
-    let subValue: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.caption)
-                .foregroundColor(.secondary)
-            Text(value)
-                .font(.subheadline.weight(.bold))
-            Text(subValue)
-                .font(.caption2)
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

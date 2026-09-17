@@ -11,16 +11,26 @@ public struct ItemDetailView: View {
     public var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                // Header Card
-                VStack(spacing: 12) {
-                    ZStack {
-                        Circle()
-                            .fill(item.category.categoryColor.opacity(0.15))
-                            .frame(width: 80, height: 80)
-                        
-                        Image(systemName: item.category.iconName)
-                            .font(.system(size: 36, weight: .bold))
-                            .foregroundColor(item.category.categoryColor)
+                // Food Photo or Header Card
+                VStack(spacing: 14) {
+                    if let imgData = item.itemImageData, let uiImage = UIImage(data: imgData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 220)
+                            .frame(maxWidth: .infinity)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .shadow(color: Color.black.opacity(0.08), radius: 6, x: 0, y: 3)
+                    } else {
+                        ZStack {
+                            Circle()
+                                .fill(item.category.categoryColor.opacity(0.15))
+                                .frame(width: 80, height: 80)
+                            
+                            Image(systemName: item.category.iconName)
+                                .font(.system(size: 36, weight: .bold))
+                                .foregroundColor(item.category.categoryColor)
+                        }
                     }
                     
                     Text(item.name)
@@ -29,26 +39,26 @@ public struct ItemDetailView: View {
                     
                     HStack(spacing: 12) {
                         Label(item.category.rawValue, systemImage: item.category.iconName)
-                            .font(.subheadline)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 4)
+                            .font(.subheadline.weight(.semibold))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
                             .background(item.category.categoryColor.opacity(0.12))
                             .foregroundColor(item.category.categoryColor)
-                            .cornerRadius(8)
+                            .cornerRadius(10)
                         
                         Label(item.location.rawValue, systemImage: item.location.iconName)
-                            .font(.subheadline)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 4)
+                            .font(.subheadline.weight(.semibold))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
                             .background(item.location.themeColor.opacity(0.12))
                             .foregroundColor(item.location.themeColor)
-                            .cornerRadius(8)
+                            .cornerRadius(10)
                     }
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(Color(UIColor.secondarySystemGroupedBackground))
-                .cornerRadius(16)
+                .cornerRadius(20)
                 
                 // Expiry Countdown Card
                 VStack(alignment: .leading, spacing: 14) {
@@ -110,7 +120,7 @@ public struct ItemDetailView: View {
                 }
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
-                .cornerRadius(16)
+                .cornerRadius(20)
                 
                 // Details Card
                 VStack(alignment: .leading, spacing: 12) {
@@ -138,7 +148,7 @@ public struct ItemDetailView: View {
                 }
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
-                .cornerRadius(16)
+                .cornerRadius(20)
                 
                 // Action Buttons
                 VStack(spacing: 12) {
@@ -152,7 +162,7 @@ public struct ItemDetailView: View {
                             .frame(maxWidth: .infinity)
                             .padding()
                             .background(Color.green)
-                            .cornerRadius(12)
+                            .cornerRadius(14)
                     }
                     
                     Button(role: .destructive) {
@@ -164,7 +174,7 @@ public struct ItemDetailView: View {
                             .padding()
                             .background(Color.red.opacity(0.12))
                             .foregroundColor(.red)
-                            .cornerRadius(12)
+                            .cornerRadius(14)
                     }
                 }
                 .padding(.top, 10)
@@ -196,21 +206,5 @@ public struct ItemDetailView: View {
         if let updated = viewModel.filteredItems.first(where: { $0.id == item.id }) {
             self.item = updated
         }
-    }
-}
-
-struct DetailRow: View {
-    let title: String
-    let value: String
-    
-    var body: some View {
-        HStack {
-            Text(title)
-                .foregroundColor(.secondary)
-            Spacer()
-            Text(value)
-                .fontWeight(.semibold)
-        }
-        .font(.subheadline)
     }
 }

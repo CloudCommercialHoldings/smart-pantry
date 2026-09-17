@@ -6,10 +6,12 @@ public class StorageService: ObservableObject {
     @Published public var pantryItems: [PantryItem] = []
     @Published public var receipts: [ReceiptRecord] = []
     @Published public var ocrRules: [OCRCorrectionRule] = []
+    @Published public var warranties: [WarrantyItem] = []
     
-    private let pantryFilename = "pantry_items_v2.json"
-    private let receiptsFilename = "receipt_records_v2.json"
-    private let rulesFilename = "ocr_rules_v2.json"
+    private let pantryFilename = "pantry_items_v3.json"
+    private let receiptsFilename = "receipt_records_v3.json"
+    private let rulesFilename = "ocr_rules_v3.json"
+    private let warrantiesFilename = "warranties_v3.json"
     
     public init() {
         loadAllData()
@@ -21,9 +23,21 @@ public class StorageService: ObservableObject {
         self.pantryItems = load(filename: pantryFilename, as: [PantryItem].self) ?? []
         self.receipts = load(filename: receiptsFilename, as: [ReceiptRecord].self) ?? []
         self.ocrRules = load(filename: rulesFilename, as: [OCRCorrectionRule].self) ?? []
+        self.warranties = load(filename: warrantiesFilename, as: [WarrantyItem].self) ?? []
+        
+        // Enforce Free Tier 20-Day Receipt Retention Auto-Purge
+        enforceReceiptRetention()
         
         if pantryItems.isEmpty && receipts.isEmpty {
             seedSampleData()
+        }
+    }
+    
+    public func enforceReceiptRetention() {
+        let result = SubscriptionService.shared.filterReceiptsForRetention(receipts)
+        if result.purgedCount > 0 {
+            self.receipts = result.valid
+            saveReceipts()
         }
     }
     
@@ -37,6 +51,10 @@ public class StorageService: ObservableObject {
     
     public func saveOCRRules() {
         save(data: ocrRules, to: rulesFilename)
+    }
+    
+    public func saveWarranties() {
+        save(data: warranties, to: warrantiesFilename)
     }
     
     // MARK: - Pantry Operations
@@ -69,10 +87,30 @@ public class StorageService: ObservableObject {
         }
     }
     
+    // MARK: - Warranty Operations
+    
+    public func addWarranty(_ item: WarrantyItem) {
+        warranties.append(item)
+        saveWarranties()
+    }
+    
+    public func updateWarranty(_ item: WarrantyItem) {
+        if let index = warranties.firstIndex(where: { $0.id == item.id }) {
+            warranties[index] = item
+            saveWarranties()
+        }
+    }
+    
+    public func deleteWarranty(_ item: WarrantyItem) {
+        warranties.removeAll(where: { $0.id == item.id })
+        saveWarranties()
+    }
+    
     // MARK: - Receipt History Operations
     
     public func addReceiptRecord(_ record: ReceiptRecord, importToPantry: Bool = true) {
         receipts.insert(record, at: 0)
+        enforceReceiptRetention()
         saveReceipts()
         
         if importToPantry {
@@ -171,7 +209,7 @@ public class StorageService: ObservableObject {
                 unit: "gal",
                 purchasePrice: 4.29,
                 purchaseDate: calendar.date(byAdding: .day, value: -3, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: 2, to: today)! // Expiring Soon!
+                expirationDate: calendar.date(byAdding: .day, value: 2, to: today)!
             ),
             PantryItem(
                 name: "Boneless Chicken Breast",
@@ -182,7 +220,7 @@ public class StorageService: ObservableObject {
                 unit: "lbs",
                 purchasePrice: 6.99,
                 purchaseDate: calendar.date(byAdding: .day, value: -2, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: 1, to: today)! // Expiring Soon!
+                expirationDate: calendar.date(byAdding: .day, value: 1, to: today)!
             ),
             PantryItem(
                 name: "Fresh Strawberries",
@@ -193,7 +231,7 @@ public class StorageService: ObservableObject {
                 unit: "lb",
                 purchasePrice: 3.49,
                 purchaseDate: calendar.date(byAdding: .day, value: -4, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: -1, to: today)! // Expired!
+                expirationDate: calendar.date(byAdding: .day, value: -1, to: today)!
             ),
             PantryItem(
                 name: "Avocados 4-Pack",
@@ -204,7 +242,7 @@ public class StorageService: ObservableObject {
                 unit: "pcs",
                 purchasePrice: 3.99,
                 purchaseDate: calendar.date(byAdding: .day, value: -1, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: 4, to: today)! // Fresh
+                expirationDate: calendar.date(byAdding: .day, value: 4, to: today)!
             ),
             PantryItem(
                 name: "Pasture Raised Eggs",
@@ -215,7 +253,7 @@ public class StorageService: ObservableObject {
                 unit: "ct",
                 purchasePrice: 4.99,
                 purchaseDate: calendar.date(byAdding: .day, value: -5, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: 16, to: today)! // Fresh
+                expirationDate: calendar.date(byAdding: .day, value: 16, to: today)!
             ),
             PantryItem(
                 name: "Artisan Sourdough Bread",
@@ -226,18 +264,7 @@ public class StorageService: ObservableObject {
                 unit: "loaf",
                 purchasePrice: 4.49,
                 purchaseDate: calendar.date(byAdding: .day, value: -2, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: 3, to: today)! // Expiring Soon!
-            ),
-            PantryItem(
-                name: "Organic Ground Beef",
-                normalizedName: "Organic Ground Beef",
-                category: .meatSeafood,
-                location: .freezer,
-                quantity: 2,
-                unit: "lbs",
-                purchasePrice: 10.98,
-                purchaseDate: calendar.date(byAdding: .day, value: -10, to: today)!,
-                expirationDate: calendar.date(byAdding: .day, value: 120, to: today)! // Fresh
+                expirationDate: calendar.date(byAdding: .day, value: 3, to: today)!
             )
         ]
         
@@ -249,5 +276,16 @@ public class StorageService: ObservableObject {
         let sampleReceipt = ReceiptParserEngine.shared.parse(lines: sampleLines)
         self.receipts = [sampleReceipt]
         saveReceipts()
+        
+        // Seed Warranties
+        let sampleWarranty = WarrantyItem(
+            title: "Ninja Air Fryer Pro 4-in-1",
+            storeName: "Target",
+            purchaseDate: calendar.date(byAdding: .month, value: -3, to: today)!,
+            warrantyMonths: 24,
+            claimNotes: "Model AF101 - Keep receipt for 2 year manufacturer warranty."
+        )
+        self.warranties = [sampleWarranty]
+        saveWarranties()
     }
 }

@@ -2,10 +2,13 @@ import SwiftUI
 
 public struct ScannerSelectionView: View {
     @StateObject var viewModel = ScannerViewModel()
+    @ObservedObject var subService = SubscriptionService.shared
+    @ObservedObject var storage = StorageService.shared
     
     @State private var showDocumentCamera: Bool = false
     @State private var showBarcodeScanner: Bool = false
     @State private var showPhotoPicker: Bool = false
+    @State private var showPaywall: Bool = false
     
     public var body: some View {
         NavigationView {
@@ -20,13 +23,46 @@ public struct ScannerSelectionView: View {
                         Text("Smart Grocery Scanner")
                             .font(.title.weight(.bold))
                         
-                        Text("Scan paper receipts or barcodes to automatically log items and estimate expiration dates.")
+                        Text("Scan paper receipts or barcodes to log items, estimate expiration dates, and track spending.")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 24)
                     }
                     .padding(.top, 16)
+                    
+                    // Freemium Usage Banner
+                    if !subService.isPro {
+                        HStack(spacing: 12) {
+                            Image(systemName: "info.circle.fill")
+                                .font(.title3)
+                                .foregroundColor(.blue)
+                            
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Free Tier Limit: \(storage.receipts.count) / \(subService.freeReceiptScanLimit) Receipts")
+                                    .font(.subheadline.weight(.bold))
+                                Text("Receipts auto-removed after 20 days. Upgrade for unlimited storage.")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                            Spacer()
+                            
+                            Button("Upgrade") {
+                                showPaywall = true
+                            }
+                            .font(.caption.weight(.bold))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(Color.blue)
+                            .cornerRadius(8)
+                        }
+                        .padding(14)
+                        .background(Color.blue.opacity(0.12))
+                        .cornerRadius(16)
+                        .padding(.horizontal)
+                    }
                     
                     // Primary Actions Grid
                     VStack(spacing: 16) {
@@ -38,7 +74,9 @@ public struct ScannerSelectionView: View {
                             badgeText: "Recommended",
                             color: .accentColor
                         ) {
-                            showDocumentCamera = true
+                            checkScanPermissionAndLaunch {
+                                showDocumentCamera = true
+                            }
                         }
                         
                         // Live Barcode Scanner Button
@@ -60,7 +98,9 @@ public struct ScannerSelectionView: View {
                             badgeText: nil,
                             color: .purple
                         ) {
-                            showPhotoPicker = true
+                            checkScanPermissionAndLaunch {
+                                showPhotoPicker = true
+                            }
                         }
                     }
                     .padding(.horizontal)
@@ -78,15 +118,21 @@ public struct ScannerSelectionView: View {
                         
                         HStack(spacing: 12) {
                             DemoStoreButton(name: "Trader Joe's", icon: "cart.fill", color: .red) {
-                                viewModel.processSampleReceipt(storeName: "Trader Joe's")
+                                checkScanPermissionAndLaunch {
+                                    viewModel.processSampleReceipt(storeName: "Trader Joe's")
+                                }
                             }
                             
                             DemoStoreButton(name: "Whole Foods", icon: "leaf.fill", color: .green) {
-                                viewModel.processSampleReceipt(storeName: "Whole Foods")
+                                checkScanPermissionAndLaunch {
+                                    viewModel.processSampleReceipt(storeName: "Whole Foods")
+                                }
                             }
                             
                             DemoStoreButton(name: "Kroger", icon: "bag.fill", color: .blue) {
-                                viewModel.processSampleReceipt(storeName: "Kroger")
+                                checkScanPermissionAndLaunch {
+                                    viewModel.processSampleReceipt(storeName: "Kroger")
+                                }
                             }
                         }
                         .padding(.horizontal)
@@ -107,7 +153,6 @@ public struct ScannerSelectionView: View {
             }
             .sheet(isPresented: $showBarcodeScanner) {
                 BarcodeScannerView { code in
-                    // Add mock item by barcode lookup
                     let metadata = ExpiryDatabaseService.shared.predictMetadata(itemName: "Scanned Item (\(code))")
                     let item = PantryItem(
                         name: "Scanned Product (\(code.prefix(6)))",
@@ -121,6 +166,9 @@ public struct ScannerSelectionView: View {
             }
             .sheet(isPresented: $showPhotoPicker) {
                 PhotoPickerScannerView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
             .fullScreenCover(isPresented: $viewModel.showReceiptReview) {
                 ReceiptReviewView(viewModel: viewModel)
@@ -146,85 +194,12 @@ public struct ScannerSelectionView: View {
             }
         }
     }
-}
-
-struct ScanOptionCard: View {
-    let title: String
-    let subtitle: String
-    let icon: String
-    let badgeText: String?
-    let color: Color
-    let action: () -> Void
     
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: 16) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 14)
-                        .fill(color.opacity(0.15))
-                        .frame(width: 54, height: 54)
-                    
-                    Image(systemName: icon)
-                        .font(.system(size: 24, weight: .semibold))
-                        .foregroundColor(color)
-                }
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack {
-                        Text(title)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                        
-                        if let badge = badgeText {
-                            Text(badge)
-                                .font(.caption2.weight(.bold))
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(color)
-                                .cornerRadius(6)
-                        }
-                    }
-                    
-                    Text(subtitle)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.leading)
-                }
-                
-                Spacer()
-                
-                Image(systemName: "chevron.right")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundColor(.secondary)
-            }
-            .padding(16)
-            .background(Color(UIColor.secondarySystemGroupedBackground))
-            .cornerRadius(16)
-        }
-    }
-}
-
-struct DemoStoreButton: View {
-    let name: String
-    let icon: String
-    let color: Color
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            VStack(spacing: 8) {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundColor(color)
-                Text(name)
-                    .font(.caption.weight(.semibold))
-                    .foregroundColor(.primary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .background(Color(UIColor.secondarySystemGroupedBackground))
-            .cornerRadius(12)
+    private func checkScanPermissionAndLaunch(action: () -> Void) {
+        if subService.canScanReceipt(currentReceiptCount: storage.receipts.count) {
+            action()
+        } else {
+            showPaywall = true
         }
     }
 }

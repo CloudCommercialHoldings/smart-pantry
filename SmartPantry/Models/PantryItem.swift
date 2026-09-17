@@ -30,6 +30,7 @@ public struct PantryItem: Identifiable, Codable, Equatable, Hashable {
     public var notes: String?
     public var receiptId: UUID?
     public var isConsumed: Bool
+    public var itemImageData: Data?
     
     public init(
         id: UUID = UUID(),
@@ -45,7 +46,8 @@ public struct PantryItem: Identifiable, Codable, Equatable, Hashable {
         barcode: String? = nil,
         notes: String? = nil,
         receiptId: UUID? = nil,
-        isConsumed: Bool = false
+        isConsumed: Bool = false,
+        itemImageData: Data? = nil
     ) {
         self.id = id
         self.name = name
@@ -61,6 +63,7 @@ public struct PantryItem: Identifiable, Codable, Equatable, Hashable {
         self.notes = notes
         self.receiptId = receiptId
         self.isConsumed = isConsumed
+        self.itemImageData = itemImageData
     }
     
     public var daysUntilExpiration: Int {

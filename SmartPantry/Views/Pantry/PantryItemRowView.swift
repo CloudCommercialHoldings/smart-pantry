@@ -6,73 +6,91 @@ public struct PantryItemRowView: View {
     let onExtend: () -> Void
     
     public var body: some View {
-        HStack(spacing: 14) {
-            // Category Icon Badge
-            ZStack {
-                Circle()
-                    .fill(item.category.categoryColor.opacity(0.15))
-                    .frame(width: 44, height: 44)
-                
-                Image(systemName: item.category.iconName)
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundColor(item.category.categoryColor)
+        HStack(spacing: 16) {
+            // Food Image Thumbnail or Category Icon Badge
+            if let imgData = item.itemImageData, let uiImage = UIImage(data: imgData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 56, height: 56)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                    .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+            } else {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(item.category.categoryColor.opacity(0.15))
+                        .frame(width: 56, height: 56)
+                    
+                    Image(systemName: item.category.iconName)
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundColor(item.category.categoryColor)
+                }
             }
             
             // Name & Subtitle Info
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 6) {
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: 8) {
                     Text(item.name)
-                        .font(.headline)
+                        .font(.system(size: 17, weight: .semibold, design: .rounded))
                         .foregroundColor(.primary)
                         .lineLimit(1)
                     
                     if item.quantity > 1 {
                         Text("\(formattedQty(item.quantity)) \(item.unit)")
-                            .font(.caption)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(Color.secondary.opacity(0.12))
-                            .cornerRadius(6)
+                            .font(.caption2.weight(.bold))
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background(Color(UIColor.tertiarySystemFill))
+                            .cornerRadius(8)
                     }
                 }
                 
-                HStack(spacing: 10) {
+                HStack(spacing: 8) {
                     // Location Pill
                     Label(item.location.rawValue, systemImage: item.location.iconName)
-                        .font(.caption)
+                        .font(.caption.weight(.medium))
                         .foregroundColor(item.location.themeColor)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(item.location.themeColor.opacity(0.12))
+                        .cornerRadius(6)
                     
                     if let price = item.purchasePrice {
-                        Text("•  $\(price, specifier: "%.2f")")
-                            .font(.caption)
+                        Text("$\(price, specifier: "%.2f")")
+                            .font(.caption.weight(.semibold))
                             .foregroundColor(.secondary)
                     }
                 }
             }
             
-            Spacer()
+            Spacer(minLength: 4)
             
             // Expiry Status Badge
             VStack(alignment: .trailing, spacing: 4) {
                 Text(expiryLabelText(item))
                     .font(.caption.weight(.bold))
                     .foregroundColor(item.expiryStatus.badgeColor)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
                     .background(item.expiryStatus.badgeColor.opacity(0.15))
-                    .cornerRadius(8)
+                    .cornerRadius(10)
                 
                 Text(formattedDate(item.expirationDate))
                     .font(.caption2)
                     .foregroundColor(.secondary)
             }
         }
-        .padding(.vertical, 8)
-        .swipeActions(edge: .trailing) {
+        .padding(14)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
+        .cornerRadius(18)
+        .shadow(color: Color.black.opacity(0.04), radius: 6, x: 0, y: 3)
+        .padding(.vertical, 4)
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button(role: .destructive) {
                 onConsume()
             } label: {
-                Label("Consume", systemImage: "checkmark.circle.fill")
+                Label("Consumed", systemImage: "checkmark.circle.fill")
             }
             .tint(.green)
             
