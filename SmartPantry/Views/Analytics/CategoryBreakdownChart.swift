@@ -3,6 +3,10 @@ import SwiftUI
 public struct CategoryBreakdownChart: View {
     let categories: [CategorySpending]
     
+    public init(categories: [CategorySpending]) {
+        self.categories = categories
+    }
+    
     public var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("Category Breakdown")
