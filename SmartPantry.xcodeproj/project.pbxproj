@@ -26,7 +26,7 @@
 		A10000012C95B01700000017 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01700000017 /* AnalyticsViewModel.swift */; };
 		A10000012C95B01800000018 /* PantryItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01800000018 /* PantryItemRowView.swift */; };
 		A10000012C95B01900000019 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01900000019 /* ItemDetailView.swift */; };
-		A10000012C95B0200000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0200000020 /* AddEditItemView.swift */; };
+		A10000012C95B02000000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02000000020 /* AddEditItemView.swift */; };
 		A10000012C95B02100000021 /* PantryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02100000021 /* PantryListView.swift */; };
 		A10000012C95B02200000022 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02200000022 /* DocumentCameraView.swift */; };
 		A10000012C95B02300000023 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02300000023 /* BarcodeScannerView.swift */; };
@@ -36,16 +36,23 @@
 		A10000012C95B02700000027 /* ReceiptFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02700000027 /* ReceiptFilterView.swift */; };
 		A10000012C95B02800000028 /* ReceiptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02800000028 /* ReceiptDetailView.swift */; };
 		A10000012C95B02900000029 /* ReceiptHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02900000029 /* ReceiptHistoryView.swift */; };
-		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0300000030 /* CategoryBreakdownChart.swift */; };
+		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03000000030 /* CategoryBreakdownChart.swift */; };
 		A10000012C95B03100000031 /* SpendingAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03100000031 /* SpendingAnalyticsView.swift */; };
 		A10000012C95B03200000032 /* ExpiringSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03200000032 /* ExpiringSoonView.swift */; };
 		A10000012C95B03300000033 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03300000033 /* MainTabView.swift */; };
 		A10000012C95B03400000034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03400000034 /* Assets.xcassets */; };
+		A10000012C95B03600000036 /* SubscriptionTier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03600000036 /* SubscriptionTier.swift */; };
+		A10000012C95B03700000037 /* WarrantyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03700000037 /* WarrantyItem.swift */; };
+		A10000012C95B03800000038 /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03800000038 /* SubscriptionService.swift */; };
+		A10000012C95B03900000039 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03900000039 /* PaywallView.swift */; };
+		A10000012C95B0400000040 /* WarrantyTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0400000040 /* WarrantyTrackerView.swift */; };
+		A10000012C95B04100000041 /* AddWarrantyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04100000041 /* AddWarrantyView.swift */; };
+		A10000012C95B04200000042 /* TaxReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04200000042 /* TaxReportView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A10000012C95A00000000000 /* SmartPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A10000012C95A00100000001 /* SmartPantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/SmartPantryApp.swift; sourceTree = "<group>"; };
+		A10000012C95A00100000001 /* SmartPantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPantryApp.swift; sourceTree = "<group>"; };
 		A10000012C95A00200000002 /* StorageLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageLocation.swift; sourceTree = "<group>"; };
 		A10000012C95A00300000003 /* ItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCategory.swift; sourceTree = "<group>"; };
 		A10000012C95A00400000004 /* PantryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItem.swift; sourceTree = "<group>"; };
@@ -78,8 +85,15 @@
 		A10000012C95A03100000031 /* SpendingAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics/SpendingAnalyticsView.swift; sourceTree = "<group>"; };
 		A10000012C95A03200000032 /* ExpiringSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expiry/ExpiringSoonView.swift; sourceTree = "<group>"; };
 		A10000012C95A03300000033 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		A10000012C95A03400000034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
-		A10000012C95A03500000035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = App/Info.plist; sourceTree = "<group>"; };
+		A10000012C95A03400000034 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10000012C95A03500000035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000012C95A03600000036 /* SubscriptionTier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTier.swift; sourceTree = "<group>"; };
+		A10000012C95A03700000037 /* WarrantyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyItem.swift; sourceTree = "<group>"; };
+		A10000012C95A03800000038 /* SubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		A10000012C95A03900000039 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall/PaywallView.swift; sourceTree = "<group>"; };
+		A10000012C95A0400000040 /* WarrantyTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warranty/WarrantyTrackerView.swift; sourceTree = "<group>"; };
+		A10000012C95A04100000041 /* AddWarrantyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warranty/AddWarrantyView.swift; sourceTree = "<group>"; };
+		A10000012C95A04200000042 /* TaxReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tax/TaxReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +146,8 @@
 				A10000012C95A00500000005 /* ReceiptRecord.swift */,
 				A10000012C95A00600000006 /* SpendingAnalytics.swift */,
 				A10000012C95A00700000007 /* OCRCorrectionRule.swift */,
+				A10000012C95A03600000036 /* SubscriptionTier.swift */,
+				A10000012C95A03700000037 /* WarrantyItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,6 +161,7 @@
 				A10000012C95A01100000011 /* ReceiptParserEngine.swift */,
 				A10000012C95A01200000012 /* NotificationService.swift */,
 				A10000012C95A01300000013 /* StorageService.swift */,
+				A10000012C95A03800000038 /* SubscriptionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -179,6 +196,10 @@
 				A10000012C95A0300000030 /* CategoryBreakdownChart.swift */,
 				A10000012C95A03100000031 /* SpendingAnalyticsView.swift */,
 				A10000012C95A03200000032 /* ExpiringSoonView.swift */,
+				A10000012C95A03900000039 /* PaywallView.swift */,
+				A10000012C95A0400000040 /* WarrantyTrackerView.swift */,
+				A10000012C95A04100000041 /* AddWarrantyView.swift */,
+				A10000012C95A04200000042 /* TaxReportView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +306,13 @@
 				A10000012C95B03100000031 /* SpendingAnalyticsView.swift in Sources */,
 				A10000012C95B03200000032 /* ExpiringSoonView.swift in Sources */,
 				A10000012C95B03300000033 /* MainTabView.swift in Sources */,
+				A10000012C95B03600000036 /* SubscriptionTier.swift in Sources */,
+				A10000012C95B03700000037 /* WarrantyItem.swift in Sources */,
+				A10000012C95B03800000038 /* SubscriptionService.swift in Sources */,
+				A10000012C95B03900000039 /* PaywallView.swift in Sources */,
+				A10000012C95B0400000040 /* WarrantyTrackerView.swift in Sources */,
+				A10000012C95B04100000041 /* AddWarrantyView.swift in Sources */,
+				A10000012C95B04200000042 /* TaxReportView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +394,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -382,10 +409,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -394,7 +420,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -410,10 +435,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
