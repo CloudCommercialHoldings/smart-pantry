@@ -127,7 +127,7 @@ public struct AddEditItemView: View {
                     }
                 }
                 
-                Section(header: Text("Dates")) {
+                Section(header: Text("Dates & Shelf Life (FDA Auto-Predicted)"), footer: Text("Expiration date is automatically estimated using FDA shelf-life standards. You can manually adjust the date above anytime.")) {
                     DatePicker("Purchase Date", selection: $purchaseDate, displayedComponents: .date)
                     DatePicker("Expiration Date", selection: $expirationDate, displayedComponents: .date)
                 }
@@ -173,10 +173,14 @@ public struct AddEditItemView: View {
     }
     
     private func autoPredictExpiry(for itemName: String, forceLocation: StorageLocation? = nil) {
-        let predicted = ExpiryDatabaseService.shared.predictMetadata(itemName: itemName, location: forceLocation)
-        self.category = predicted.category
+        let predicted = FoodShelfLifeAPIService.shared.estimateShelfLife(
+            itemName: itemName,
+            location: forceLocation,
+            purchaseDate: purchaseDate
+        )
+        self.category = predicted.info.category
         if forceLocation == nil {
-            self.location = predicted.location
+            self.location = predicted.info.recommendedLocation
         }
         self.expirationDate = predicted.expirationDate
     }

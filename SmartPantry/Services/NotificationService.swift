@@ -16,22 +16,28 @@ public class NotificationService {
         }
     }
     
-    /// Schedules local notifications for a pantry item (2 days before, 1 day before, and day of expiration)
+    /// Schedules local notifications for a pantry item
     public func scheduleNotifications(for item: PantryItem) {
         guard !item.isConsumed else { return }
         
         let center = UNUserNotificationCenter.current()
         // Remove existing notifications for this item ID
-        center.removePendingNotificationRequests(withIdentifiers: [
-            "\(item.id.uuidString)-2days",
-            "\(item.id.uuidString)-1day",
-            "\(item.id.uuidString)-today"
-        ])
+        cancelNotifications(for: item.id)
         
         let calendar = Calendar.current
         let expDate = item.expirationDate
         
-        // 2 Days Before Expiration at 9:00 AM
+        // 10 Days Before Expiration
+        if let targetDate10 = calendar.date(byAdding: .day, value: -10, to: expDate), targetDate10 > Date() {
+            scheduleNotification(
+                id: "\(item.id.uuidString)-10days",
+                title: "Expiring in 10 Days: \(item.name)",
+                body: "Your \(item.name) stored in \(item.location.rawValue) expires in 10 days. Plan your meals!",
+                date: targetDate10
+            )
+        }
+        
+        // 2 Days Before Expiration
         if let targetDate2 = calendar.date(byAdding: .day, value: -2, to: expDate), targetDate2 > Date() {
             scheduleNotification(
                 id: "\(item.id.uuidString)-2days",
@@ -41,7 +47,7 @@ public class NotificationService {
             )
         }
         
-        // 1 Day Before Expiration at 9:00 AM
+        // 1 Day Before Expiration
         if let targetDate1 = calendar.date(byAdding: .day, value: -1, to: expDate), targetDate1 > Date() {
             scheduleNotification(
                 id: "\(item.id.uuidString)-1day",
@@ -51,7 +57,7 @@ public class NotificationService {
             )
         }
         
-        // Day of Expiration at 9:00 AM
+        // Day of Expiration
         if expDate > Date() {
             scheduleNotification(
                 id: "\(item.id.uuidString)-today",
@@ -60,15 +66,51 @@ public class NotificationService {
                 date: expDate
             )
         }
+        
+        // Special Freezer Push Notification (e.g. at 60 and 90 days in freezer)
+        if item.location == .freezer {
+            if let freezer60 = calendar.date(byAdding: .day, value: 60, to: item.purchaseDate), freezer60 > Date() {
+                scheduleNotification(
+                    id: "\(item.id.uuidString)-freezer60",
+                    title: "Freezer Check: \(item.name)",
+                    body: "It's been in there for a minute! Your \(item.name) has been in the freezer for 60 days. Tap for FDA quality guidelines.",
+                    date: freezer60
+                )
+            }
+            if let freezer90 = calendar.date(byAdding: .day, value: 90, to: item.purchaseDate), freezer90 > Date() {
+                scheduleNotification(
+                    id: "\(item.id.uuidString)-freezer90",
+                    title: "Freezer Alert: \(item.name)",
+                    body: "Your food (\(item.name)) has been in the freezer for 90 days. Check packaging for freezer burn and review FDA facts.",
+                    date: freezer90
+                )
+            }
+        }
+        
+        // Special Spice Rack Push Notification (at 180 days / 6 months)
+        if item.location == .spiceRack {
+            if let spiceReminder = calendar.date(byAdding: .day, value: 180, to: item.purchaseDate), spiceReminder > Date() {
+                scheduleNotification(
+                    id: "\(item.id.uuidString)-spiceRack",
+                    title: "Spice Freshness: \(item.name)",
+                    body: "Your spices might be hardening or losing potency! Tap to view FDA storage tips and anti-clumping guidelines.",
+                    date: spiceReminder
+                )
+            }
+        }
     }
     
     /// Cancels all scheduled notifications for a specific item
     public func cancelNotifications(for itemID: UUID) {
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: [
+            "\(itemID.uuidString)-10days",
             "\(itemID.uuidString)-2days",
             "\(itemID.uuidString)-1day",
-            "\(itemID.uuidString)-today"
+            "\(itemID.uuidString)-today",
+            "\(itemID.uuidString)-freezer60",
+            "\(itemID.uuidString)-freezer90",
+            "\(itemID.uuidString)-spiceRack"
         ])
     }
     

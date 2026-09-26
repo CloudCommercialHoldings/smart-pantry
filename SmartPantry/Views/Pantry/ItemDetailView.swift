@@ -7,6 +7,15 @@ public struct ItemDetailView: View {
     
     @State private var isEditing: Bool = false
     @State private var showDeleteConfirm: Bool = false
+    @State private var showFDAFacts: Bool = false
+    
+    public var daysSincePurchase: Int {
+        let calendar = Calendar.current
+        let startOfPurchase = calendar.startOfDay(for: item.purchaseDate)
+        let startOfToday = calendar.startOfDay(for: Date())
+        let components = calendar.dateComponents([.day], from: startOfPurchase, to: startOfToday)
+        return max(components.day ?? 0, 0)
+    }
     
     public init(viewModel: PantryViewModel, item: PantryItem) {
         self.viewModel = viewModel
@@ -127,6 +136,56 @@ public struct ItemDetailView: View {
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(20)
                 
+                // FDA Recommendations Card (Special for Freezer & Spice Rack)
+                Button {
+                    showFDAFacts = true
+                } label: {
+                    HStack(spacing: 14) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(item.location == .freezer ? Color.blue.opacity(0.15) : (item.location == .spiceRack ? Color.orange.opacity(0.15) : Color.green.opacity(0.15)))
+                                .frame(width: 48, height: 48)
+                            
+                            Image(systemName: item.location == .freezer ? "snowflake" : (item.location == .spiceRack ? "flame.fill" : "shield.lefthalf.filled"))
+                                .font(.title3.weight(.bold))
+                                .foregroundColor(item.location == .freezer ? .blue : (item.location == .spiceRack ? .orange : .green))
+                        }
+                        
+                        VStack(alignment: .leading, spacing: 3) {
+                            HStack {
+                                Text(item.location == .freezer ? "Freezer FDA Facts" : (item.location == .spiceRack ? "Spice Freshness Facts" : "FDA Food Facts"))
+                                    .font(.subheadline.weight(.bold))
+                                    .foregroundColor(.primary)
+                                Spacer()
+                                Text("Tap to view")
+                                    .font(.caption2.weight(.semibold))
+                                    .foregroundColor(.accentColor)
+                            }
+                            
+                            if item.location == .freezer {
+                                Text("Stored in freezer for \(daysSincePurchase) days. Freezing extends shelf life! Tap for thawing & safety facts.")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .multilineTextAlignment(.leading)
+                            } else if item.location == .spiceRack {
+                                Text("Stored for \(daysSincePurchase) days. Steam from cooking causes clumping. Tap for anti-hardening tips.")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .multilineTextAlignment(.leading)
+                            } else {
+                                Text("Official storage guidelines, temperature benchmarks, and safety tips.")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .multilineTextAlignment(.leading)
+                            }
+                        }
+                    }
+                    .padding(14)
+                    .background(Color(UIColor.secondarySystemGroupedBackground))
+                    .cornerRadius(20)
+                }
+                .buttonStyle(.plain)
+                
                 // Details Card
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Details")
@@ -199,6 +258,9 @@ public struct ItemDetailView: View {
         .sheet(isPresented: $isEditing) {
             AddEditItemView(viewModel: viewModel, itemToEdit: item)
         }
+        .sheet(isPresented: $showFDAFacts) {
+            FDAFactsView(item: item)
+        }
         .confirmationDialog("Delete Item?", isPresented: $showDeleteConfirm, titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
                 viewModel.deleteItem(item)
@@ -229,7 +291,7 @@ public struct DetailRow: View {
                 .foregroundColor(.secondary)
             Spacer()
             Text(value)
-                .weight(.semibold)
+                .fontWeight(.semibold)
         }
         .font(.subheadline)
     }

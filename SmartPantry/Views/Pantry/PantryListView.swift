@@ -3,9 +3,14 @@ import SwiftUI
 public struct PantryListView: View {
     @StateObject var viewModel = PantryViewModel()
     @ObservedObject var subService = SubscriptionService.shared
+    @ObservedObject var authService = AuthService.shared
+    @ObservedObject var gamification = GamificationService.shared
     
     @State private var showAddItemSheet: Bool = false
     @State private var showPaywall: Bool = false
+    @State private var showRecentlyDeleted: Bool = false
+    @State private var showRewards: Bool = false
+    @State private var showSignOutAlert: Bool = false
     
     public init() {}
     
@@ -121,6 +126,48 @@ public struct PantryListView: View {
                         .padding(.bottom, 20)
                     }
                 }
+                
+                // Floating Undo Snackbar Banner
+                if let undo = viewModel.lastUndoAction {
+                    HStack(spacing: 12) {
+                        Image(systemName: "arrow.uturn.backward.circle.fill")
+                            .font(.title3)
+                            .foregroundColor(.yellow)
+                        
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(undo.message)
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundColor(.white)
+                                .lineLimit(1)
+                            Text("Tap Undo to restore item immediately")
+                                .font(.caption2)
+                                .foregroundColor(.white.opacity(0.8))
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            withAnimation(.spring()) {
+                                viewModel.undoLastAction()
+                            }
+                        } label: {
+                            Text("UNDO")
+                                .font(.caption.weight(.bold))
+                                .foregroundColor(.black)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(Color.yellow)
+                                .cornerRadius(8)
+                        }
+                    }
+                    .padding(14)
+                    .background(Color.black.opacity(0.9))
+                    .cornerRadius(16)
+                    .shadow(color: Color.black.opacity(0.3), radius: 8, x: 0, y: 4)
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
             }
             .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
             .navigationTitle("Smart Pantry")
@@ -138,16 +185,39 @@ public struct PantryListView: View {
                                     .font(.caption.weight(.bold))
                             }
                             .foregroundColor(.white)
-                            .padding(.horizontal, 10)
+                            .padding(.horizontal, 8)
                             .padding(.vertical, 5)
                             .background(subService.isPro ? Color.purple : Color.orange)
-                            .cornerRadius(12)
+                            .cornerRadius(10)
+                        }
+                        
+                        Button {
+                            showRewards = true
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: gamification.currentLevel.badgeIcon)
+                                    .font(.caption.weight(.bold))
+                                Text(gamification.currentLevel.rawValue)
+                                    .font(.caption.weight(.semibold))
+                            }
+                            .foregroundColor(gamification.currentLevel.badgeColor)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 5)
+                            .background(gamification.currentLevel.badgeColor.opacity(0.15))
+                            .cornerRadius(10)
                         }
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 12) {
+                        Button {
+                            showRecentlyDeleted = true
+                        } label: {
+                            Image(systemName: "arrow.uturn.backward.circle")
+                                .font(.title3)
+                        }
+                        
                         Menu {
                             Picker("Sort By", selection: $viewModel.sortOption) {
                                 ForEach(PantrySortOption.allCases) { option in
@@ -156,6 +226,21 @@ public struct PantryListView: View {
                             }
                         } label: {
                             Image(systemName: "arrow.up.arrow.down.circle")
+                                .font(.title3)
+                        }
+                        
+                        Menu {
+                            if let email = authService.currentUser?.email {
+                                Text("Signed in as:\n\(email)")
+                                Divider()
+                            }
+                            Button(role: .destructive) {
+                                showSignOutAlert = true
+                            } label: {
+                                Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                            }
+                        } label: {
+                            Image(systemName: "person.crop.circle")
                                 .font(.title3)
                         }
                         
@@ -173,6 +258,20 @@ public struct PantryListView: View {
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
+            }
+            .sheet(isPresented: $showRecentlyDeleted) {
+                RecentlyDeletedView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $showRewards) {
+                PantryRewardsView()
+            }
+            .alert("Sign Out", isPresented: $showSignOutAlert) {
+                Button("Sign Out", role: .destructive) {
+                    authService.signOut()
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Are you sure you want to sign out of SmartPantry?")
             }
         }
     }

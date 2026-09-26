@@ -111,4 +111,22 @@ public class PantryViewModel: ObservableObject {
         updated.location = newLocation
         storage.updatePantryItem(updated)
     }
+    
+    // MARK: - Undo & Recently Deleted
+    
+    public var lastUndoAction: UndoAction? {
+        storage.lastUndoAction
+    }
+    
+    public var recentlyDeletedItems: [PantryItem] {
+        storage.recentlyDeletedItems
+    }
+    
+    public func undoLastAction() {
+        storage.undoLastAction()
+    }
+    
+    public func restoreDeletedItem(_ item: PantryItem) {
+        storage.restoreDeletedItem(item)
+    }
 }

@@ -3,14 +3,44 @@ import SwiftUI
 public struct ReceiptFilterView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: ReceiptHistoryViewModel
+    @ObservedObject var subService = SubscriptionService.shared
+    
+    @State private var showPaywall: Bool = false
     
     public var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Date Range")) {
-                    Picker("Time Period", selection: $viewModel.selectedDateRange) {
-                        ForEach(DateRangeFilter.allCases) { range in
-                            Text(range.rawValue).tag(range)
+                Section(header: Text("Date Range"), footer: Text("Default filter is 'This Month'. Yearly and 5 Years date ranges are unlocked with SmartPantry Pro.")) {
+                    ForEach(DateRangeFilter.allCases) { range in
+                        HStack {
+                            Text(range.rawValue)
+                                .foregroundColor(range.isProOnly && !subService.isPro ? .secondary : .primary)
+                            
+                            Spacer()
+                            
+                            if range.isProOnly {
+                                Label("PRO", systemImage: "crown.fill")
+                                    .font(.caption2.weight(.bold))
+                                    .padding(.horizontal, 6)
+                                    .padding(.vertical, 2)
+                                    .background(Color.purple.opacity(0.15))
+                                    .foregroundColor(.purple)
+                                    .cornerRadius(6)
+                            }
+                            
+                            if viewModel.selectedDateRange == range {
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.accentColor)
+                                    .fontWeight(.bold)
+                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if range.isProOnly && !subService.isPro {
+                                showPaywall = true
+                            } else {
+                                viewModel.selectedDateRange = range
+                            }
                         }
                     }
                 }
@@ -67,6 +97,9 @@ public struct ReceiptFilterView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
         }
     }

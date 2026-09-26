@@ -3,18 +3,29 @@ import SwiftUI
 import Combine
 
 public enum DateRangeFilter: String, CaseIterable, Identifiable {
-    case all = "All Time"
-    case thisWeek = "This Week"
     case thisMonth = "This Month"
+    case yearly = "Yearly (Pro Only)"
+    case fiveYears = "5 Years (Pro Only)"
     case last3Months = "Past 3 Months"
+    case all = "All Time"
     
     public var id: String { rawValue }
+    
+    public var isProOnly: Bool {
+        switch self {
+        case .yearly, .fiveYears:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 public class ReceiptHistoryViewModel: ObservableObject {
     @Published public var searchText: String = ""
     @Published public var selectedStoreFilter: String? = nil
-    @Published public var selectedDateRange: DateRangeFilter = .all
+    // Default by Month as requested
+    @Published public var selectedDateRange: DateRangeFilter = .thisMonth
     @Published public var selectedCategoryFilter: ItemCategory? = nil
     
     private var cancellables = Set<AnyCancellable>()
@@ -38,20 +49,24 @@ public class ReceiptHistoryViewModel: ObservableObject {
         
         // Date Range Filter
         switch selectedDateRange {
-        case .all:
-            break
-        case .thisWeek:
-            if let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today)) {
-                receipts = receipts.filter { $0.purchaseDate >= startOfWeek }
-            }
         case .thisMonth:
             if let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: today)) {
                 receipts = receipts.filter { $0.purchaseDate >= startOfMonth }
+            }
+        case .yearly:
+            if let startOfYear = calendar.date(byAdding: .year, value: -1, to: today) {
+                receipts = receipts.filter { $0.purchaseDate >= startOfYear }
+            }
+        case .fiveYears:
+            if let fiveYearsAgo = calendar.date(byAdding: .year, value: -5, to: today) {
+                receipts = receipts.filter { $0.purchaseDate >= fiveYearsAgo }
             }
         case .last3Months:
             if let threeMonthsAgo = calendar.date(byAdding: .month, value: -3, to: today) {
                 receipts = receipts.filter { $0.purchaseDate >= threeMonthsAgo }
             }
+        case .all:
+            break
         }
         
         // Store Filter

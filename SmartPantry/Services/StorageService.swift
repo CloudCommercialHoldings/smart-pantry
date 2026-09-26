@@ -1,5 +1,18 @@
 import Foundation
 
+public struct UndoAction: Identifiable, Equatable {
+    public let id = UUID()
+    public let message: String
+    public let item: PantryItem
+    public let wasConsumed: Bool
+    
+    public init(message: String, item: PantryItem, wasConsumed: Bool) {
+        self.message = message
+        self.item = item
+        self.wasConsumed = wasConsumed
+    }
+}
+
 public class StorageService: ObservableObject {
     public static let shared = StorageService()
     
@@ -7,6 +20,8 @@ public class StorageService: ObservableObject {
     @Published public var receipts: [ReceiptRecord] = []
     @Published public var ocrRules: [OCRCorrectionRule] = []
     @Published public var warranties: [WarrantyItem] = []
+    @Published public var recentlyDeletedItems: [PantryItem] = []
+    @Published public var lastUndoAction: UndoAction? = nil
     
     private let pantryFilename = "pantry_items_v3.json"
     private let receiptsFilename = "receipt_records_v3.json"
@@ -74,6 +89,9 @@ public class StorageService: ObservableObject {
     }
     
     public func deletePantryItem(_ item: PantryItem) {
+        recentlyDeletedItems.insert(item, at: 0)
+        if recentlyDeletedItems.count > 30 { recentlyDeletedItems.removeLast() }
+        lastUndoAction = UndoAction(message: "Deleted '\(item.name)'", item: item, wasConsumed: false)
         pantryItems.removeAll(where: { $0.id == item.id })
         savePantryItems()
         NotificationService.shared.cancelNotifications(for: item.id)
@@ -81,10 +99,44 @@ public class StorageService: ObservableObject {
     
     public func markAsConsumed(_ item: PantryItem) {
         if let index = pantryItems.firstIndex(where: { $0.id == item.id }) {
+            var consumed = pantryItems[index]
+            consumed.isConsumed = true
+            recentlyDeletedItems.insert(consumed, at: 0)
+            if recentlyDeletedItems.count > 30 { recentlyDeletedItems.removeLast() }
+            lastUndoAction = UndoAction(message: "Marked '\(item.name)' as completed", item: item, wasConsumed: true)
             pantryItems[index].isConsumed = true
             savePantryItems()
             NotificationService.shared.cancelNotifications(for: item.id)
+            GamificationService.shared.recordPantryCleanup()
         }
+    }
+    
+    public func undoLastAction() {
+        guard let action = lastUndoAction else { return }
+        var restored = action.item
+        restored.isConsumed = false
+        if let idx = pantryItems.firstIndex(where: { $0.id == restored.id }) {
+            pantryItems[idx].isConsumed = false
+        } else {
+            pantryItems.append(restored)
+        }
+        recentlyDeletedItems.removeAll(where: { $0.id == restored.id })
+        savePantryItems()
+        NotificationService.shared.scheduleNotifications(for: restored)
+        lastUndoAction = nil
+    }
+    
+    public func restoreDeletedItem(_ item: PantryItem) {
+        var restored = item
+        restored.isConsumed = false
+        if let idx = pantryItems.firstIndex(where: { $0.id == restored.id }) {
+            pantryItems[idx].isConsumed = false
+        } else {
+            pantryItems.append(restored)
+        }
+        recentlyDeletedItems.removeAll(where: { $0.id == item.id })
+        savePantryItems()
+        NotificationService.shared.scheduleNotifications(for: restored)
     }
     
     // MARK: - Warranty Operations
@@ -115,7 +167,11 @@ public class StorageService: ObservableObject {
         
         if importToPantry {
             for item in record.items {
-                let metadata = ExpiryDatabaseService.shared.predictMetadata(itemName: item.normalizedName, location: item.suggestedLocation)
+                let shelfLife = FoodShelfLifeAPIService.shared.estimateShelfLife(
+                    itemName: item.normalizedName,
+                    location: item.suggestedLocation,
+                    purchaseDate: record.purchaseDate
+                )
                 let pantryItem = PantryItem(
                     name: item.normalizedName,
                     normalizedName: item.normalizedName,
@@ -125,7 +181,7 @@ public class StorageService: ObservableObject {
                     unit: "pcs",
                     purchasePrice: item.totalPrice,
                     purchaseDate: record.purchaseDate,
-                    expirationDate: metadata.expirationDate,
+                    expirationDate: shelfLife.expirationDate,
                     receiptId: record.id
                 )
                 addPantryItem(pantryItem)

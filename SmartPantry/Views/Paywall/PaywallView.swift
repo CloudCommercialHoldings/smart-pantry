@@ -115,7 +115,7 @@ public struct PaywallView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 16)
-                        .background(Color(red: 0.0, green: 0.47, red: 0.8))
+                        .background(Color(red: 0.0, green: 0.47, blue: 0.8))
                         .cornerRadius(16)
                     }
                     
