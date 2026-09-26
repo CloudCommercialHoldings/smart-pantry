@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import CryptoKit
 
 public struct UserProfile: Codable, Equatable {
     public var email: String
@@ -25,6 +26,11 @@ public class AuthService: ObservableObject {
     private let loggedInKey = "smartpantry_is_logged_in"
     private let usersDatabaseKey = "smartpantry_registered_users"
     
+    public var isGuest: Bool {
+        guard isLoggedIn else { return false }
+        return (currentUser?.email ?? "").isEmpty
+    }
+    
     public init() {
         self.isLoggedIn = UserDefaults.standard.bool(forKey: loggedInKey)
         if let data = UserDefaults.standard.data(forKey: userDefaultsKey),
@@ -32,8 +38,6 @@ public class AuthService: ObservableObject {
             self.currentUser = user
         }
     }
-    
-    // MARK: - Email & Password Validation
     
     public func isValidEmail(_ email: String) -> Bool {
         let pattern = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}$"#
@@ -48,15 +52,13 @@ public class AuthService: ObservableObject {
         return (true, nil)
     }
     
-    // MARK: - Sign Up
-    
     public func signUp(email: String, password: String, name: String) -> Bool {
         authErrorMessage = nil
         let cleanEmail = email.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let cleanName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard isValidEmail(cleanEmail) else {
-            authErrorMessage = "Please enter a valid email address (e.g., user@example.com)."
+            authErrorMessage = "Please enter a valid email address."
             return false
         }
         
@@ -72,8 +74,7 @@ public class AuthService: ObservableObject {
             return false
         }
         
-        // Save registered user
-        registered[cleanEmail] = password
+        registered[cleanEmail] = hashedPassword(password)
         saveRegisteredUsers(registered)
         
         let displayName = cleanName.isEmpty ? cleanEmail.components(separatedBy: "@").first?.capitalized ?? "Chef" : cleanName
@@ -81,8 +82,6 @@ public class AuthService: ObservableObject {
         setCurrentUser(user)
         return true
     }
-    
-    // MARK: - Sign In
     
     public func signIn(email: String, password: String) -> Bool {
         authErrorMessage = nil
@@ -99,30 +98,31 @@ public class AuthService: ObservableObject {
         }
         
         let registered = getRegisteredUsers()
-        if let storedPassword = registered[cleanEmail] {
-            if storedPassword == password {
-                let displayName = cleanEmail.components(separatedBy: "@").first?.capitalized ?? "Chef"
-                let user = UserProfile(email: cleanEmail, name: displayName)
-                setCurrentUser(user)
-                return true
-            } else {
-                authErrorMessage = "Incorrect password. Please try again."
-                return false
-            }
-        } else {
-            // First time login with valid credentials creates the account seamlessly
-            let displayName = cleanEmail.components(separatedBy: "@").first?.capitalized ?? "Chef"
+        guard let storedPassword = registered[cleanEmail] else {
+            authErrorMessage = "No account found for this email. Create an account or continue as guest."
+            return false
+        }
+        
+        if passwordsMatch(password, stored: storedPassword) {
             var updated = registered
-            updated[cleanEmail] = password
-            saveRegisteredUsers(updated)
-            
+            if storedPassword != hashedPassword(password) {
+                updated[cleanEmail] = hashedPassword(password)
+                saveRegisteredUsers(updated)
+            }
+            let displayName = cleanEmail.components(separatedBy: "@").first?.capitalized ?? "Chef"
             let user = UserProfile(email: cleanEmail, name: displayName)
             setCurrentUser(user)
             return true
         }
+        
+        authErrorMessage = "Incorrect password. Please try again."
+        return false
     }
     
-    // MARK: - Sign Out
+    public func continueAsGuest() {
+        authErrorMessage = nil
+        setCurrentUser(UserProfile(email: "", name: "Guest"))
+    }
     
     public func signOut() {
         self.isLoggedIn = false
@@ -131,7 +131,14 @@ public class AuthService: ObservableObject {
         UserDefaults.standard.removeObject(forKey: userDefaultsKey)
     }
     
-    // MARK: - Persistence Helpers
+    public func deleteAccount() {
+        if let email = currentUser?.email.lowercased(), !email.isEmpty {
+            var registered = getRegisteredUsers()
+            registered.removeValue(forKey: email)
+            saveRegisteredUsers(registered)
+        }
+        signOut()
+    }
     
     private func setCurrentUser(_ user: UserProfile) {
         self.currentUser = user
@@ -148,5 +155,14 @@ public class AuthService: ObservableObject {
     
     private func saveRegisteredUsers(_ users: [String: String]) {
         UserDefaults.standard.set(users, forKey: usersDatabaseKey)
+    }
+    
+    private func hashedPassword(_ password: String) -> String {
+        let digest = SHA256.hash(data: Data(password.utf8))
+        return digest.map { String(format: "%02x", $0) }.joined()
+    }
+    
+    private func passwordsMatch(_ password: String, stored: String) -> Bool {
+        stored == hashedPassword(password) || stored == password
     }
 }

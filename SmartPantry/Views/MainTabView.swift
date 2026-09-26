@@ -3,6 +3,7 @@ import SwiftUI
 public struct MainTabView: View {
     @StateObject private var storage = StorageService.shared
     @State private var selectedTab: Int = 0
+    @State private var showNotificationPrompt = false
     
     public init() {}
     
@@ -36,9 +37,28 @@ public struct MainTabView: View {
                     Label("Analytics", systemImage: "chart.bar.fill")
                 }
                 .tag(3)
+            
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.fill")
+                }
+                .tag(4)
         }
         .onAppear {
-            NotificationService.shared.requestAuthorization()
+            if !UserDefaults.standard.bool(forKey: "did_ask_notifications") {
+                showNotificationPrompt = true
+            }
+        }
+        .alert("Expiration Reminders", isPresented: $showNotificationPrompt) {
+            Button("Enable Reminders") {
+                UserDefaults.standard.set(true, forKey: "did_ask_notifications")
+                NotificationService.shared.requestAuthorization()
+            }
+            Button("Not Now", role: .cancel) {
+                UserDefaults.standard.set(true, forKey: "did_ask_notifications")
+            }
+        } message: {
+            Text("Smart Pantry can send on-device alerts when food is about to expire. We do not send marketing notifications.")
         }
     }
 }

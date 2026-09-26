@@ -45,7 +45,7 @@ public struct ReceiptFilterView: View {
                     }
                 }
                 
-                Section(header: Text("Filter by Store")) {
+                Section(header: Text("Filter by Store"), footer: Text("Store and category filters are included with Smart Pantry Pro.")) {
                     Button("All Stores") {
                         viewModel.selectedStoreFilter = nil
                     }
@@ -62,7 +62,11 @@ public struct ReceiptFilterView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            viewModel.selectedStoreFilter = store
+                            if subService.isPro {
+                                viewModel.selectedStoreFilter = store
+                            } else {
+                                showPaywall = true
+                            }
                         }
                     }
                 }
@@ -84,7 +88,11 @@ public struct ReceiptFilterView: View {
                         }
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            viewModel.selectedCategoryFilter = cat
+                            if subService.isPro {
+                                viewModel.selectedCategoryFilter = cat
+                            } else {
+                                showPaywall = true
+                            }
                         }
                     }
                 }

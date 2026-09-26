@@ -8,8 +8,7 @@ public class NotificationService {
     
     /// Requests push notification authorization from the user
     public func requestAuthorization(completion: @escaping (Bool) -> Void = { _ in }) {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             DispatchQueue.main.async {
                 completion(granted)
             }
@@ -20,8 +19,6 @@ public class NotificationService {
     public func scheduleNotifications(for item: PantryItem) {
         guard !item.isConsumed else { return }
         
-        let center = UNUserNotificationCenter.current()
-        // Remove existing notifications for this item ID
         cancelNotifications(for: item.id)
         
         let calendar = Calendar.current
@@ -128,10 +125,6 @@ public class NotificationService {
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
         let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Failed to schedule notification: \(error)")
-            }
-        }
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }

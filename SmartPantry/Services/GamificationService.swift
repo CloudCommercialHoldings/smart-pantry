@@ -83,7 +83,13 @@ public class GamificationService: ObservableObject {
     
     public init() {
         loadData()
-        if availableGiftCards.isEmpty {
+        let usesRetailerCards = availableGiftCards.contains(where: {
+            ["Walmart", "Walgreens", "Target"].contains($0.storeName)
+        }) || claimedGiftCards.contains(where: {
+            ["Walmart", "Walgreens", "Target"].contains($0.storeName)
+        })
+        if availableGiftCards.isEmpty || usesRetailerCards {
+            claimedGiftCards.removeAll { ["Walmart", "Walgreens", "Target"].contains($0.storeName) }
             seedGiftCards()
         }
     }
@@ -171,25 +177,28 @@ public class GamificationService: ObservableObject {
     private func seedGiftCards() {
         self.availableGiftCards = [
             GiftCardReward(
-                storeName: "Walmart",
-                amount: "$10.00",
-                code: "WMT-PANTRY-\(Int.random(in: 1000...9999))-EXP",
-                iconName: "cart.circle.fill",
-                storeColorHex: "#0071DC"
+                storeName: "Zero-Waste Badge",
+                amount: "Unlocked",
+                code: "PANTRY-BADGE-01",
+                expiryNotice: "In-app achievement only. Not a store gift card and has no cash value.",
+                iconName: "leaf.circle.fill",
+                storeColorHex: "#2E7D32"
             ),
             GiftCardReward(
-                storeName: "Walgreens",
-                amount: "$10.00",
-                code: "WAG-REWARD-\(Int.random(in: 1000...9999))-WIN",
-                iconName: "cross.circle.fill",
-                storeColorHex: "#E31837"
+                storeName: "Expiry Hero Badge",
+                amount: "Unlocked",
+                code: "PANTRY-BADGE-02",
+                expiryNotice: "In-app achievement only. Not a store gift card and has no cash value.",
+                iconName: "clock.badge.checkmark.fill",
+                storeColorHex: "#1565C0"
             ),
             GiftCardReward(
-                storeName: "Target",
-                amount: "$10.00",
-                code: "TGT-CHEF-\(Int.random(in: 1000...9999))-PRO",
-                iconName: "target",
-                storeColorHex: "#CC0000"
+                storeName: "Receipt Master Badge",
+                amount: "Unlocked",
+                code: "PANTRY-BADGE-03",
+                expiryNotice: "In-app achievement only. Not a store gift card and has no cash value.",
+                iconName: "doc.viewfinder.fill",
+                storeColorHex: "#6A1B9A"
             )
         ]
         saveData()

@@ -55,7 +55,7 @@ public struct ConfettiView: View {
             .onAppear {
                 generateParticles(in: geo.size)
             }
-            .onChange(of: isActive) { _, active in
+            .onChange(of: isActive) { active in
                 if active {
                     generateParticles(in: geo.size)
                     fallProgress = 0.0

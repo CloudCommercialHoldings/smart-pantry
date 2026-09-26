@@ -274,6 +274,7 @@ public struct PantryListView: View {
                 Text("Are you sure you want to sign out of SmartPantry?")
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

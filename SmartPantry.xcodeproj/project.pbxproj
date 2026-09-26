@@ -56,6 +56,11 @@
 		A10000012C95B04800000048 /* RecentlyDeletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04800000048 /* RecentlyDeletedView.swift */; };
 		A10000012C95B04900000049 /* PantryRewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04900000049 /* PantryRewardsView.swift */; };
 		A10000012C95B05000000050 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05000000050 /* ConfettiView.swift */; };
+		A10000012C95B05100000051 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05100000051 /* SettingsView.swift */; };
+		A10000012C95B05200000052 /* LegalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05200000052 /* LegalViews.swift */; };
+		A10000012C95B05300000053 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05300000053 /* PrivacyInfo.xcprivacy */; };
+		A10000012C95B05400000054 /* ActivityShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05400000054 /* ActivityShareView.swift */; };
+		A10000012C95B05500000055 /* Products.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05500000055 /* Products.storekit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +115,11 @@
 		A10000012C95A04800000048 /* RecentlyDeletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/RecentlyDeletedView.swift; sourceTree = "<group>"; };
 		A10000012C95A04900000049 /* PantryRewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamification/PantryRewardsView.swift; sourceTree = "<group>"; };
 		A10000012C95A05000000050 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common/ConfettiView.swift; sourceTree = "<group>"; };
+		A10000012C95A05100000051 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings/SettingsView.swift; sourceTree = "<group>"; };
+		A10000012C95A05200000052 /* LegalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings/LegalViews.swift; sourceTree = "<group>"; };
+		A10000012C95A05300000053 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A10000012C95A05400000054 /* ActivityShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common/ActivityShareView.swift; sourceTree = "<group>"; };
+		A10000012C95A05500000055 /* Products.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Products.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +146,8 @@
 			children = (
 				A10000012C95A00100000001 /* SmartPantryApp.swift */,
 				A10000012C95A03500000035 /* Info.plist */,
+				A10000012C95A05300000053 /* PrivacyInfo.xcprivacy */,
+				A10000012C95A05500000055 /* Products.storekit */,
 				A10000012C95D00300000003 /* Models */,
 				A10000012C95D00400000004 /* Services */,
 				A10000012C95D00500000005 /* ViewModels */,
@@ -224,6 +236,9 @@
 				A10000012C95A04800000048 /* RecentlyDeletedView.swift */,
 				A10000012C95A04900000049 /* PantryRewardsView.swift */,
 				A10000012C95A05000000050 /* ConfettiView.swift */,
+				A10000012C95A05100000051 /* SettingsView.swift */,
+				A10000012C95A05200000052 /* LegalViews.swift */,
+				A10000012C95A05400000054 /* ActivityShareView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10000012C95B03400000034 /* Assets.xcassets in Resources */,
+				A10000012C95B05300000053 /* PrivacyInfo.xcprivacy in Resources */,
+				A10000012C95B05500000055 /* Products.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +362,9 @@
 				A10000012C95B04800000048 /* RecentlyDeletedView.swift in Sources */,
 				A10000012C95B04900000049 /* PantryRewardsView.swift in Sources */,
 				A10000012C95B05000000050 /* ConfettiView.swift in Sources */,
+				A10000012C95B05100000051 /* SettingsView.swift in Sources */,
+				A10000012C95B05200000052 /* LegalViews.swift in Sources */,
+				A10000012C95B05400000054 /* ActivityShareView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +453,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,9 +462,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -459,7 +481,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,9 +490,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smartpantry.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

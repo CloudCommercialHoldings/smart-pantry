@@ -40,12 +40,7 @@ public class StorageService: ObservableObject {
         self.ocrRules = load(filename: rulesFilename, as: [OCRCorrectionRule].self) ?? []
         self.warranties = load(filename: warrantiesFilename, as: [WarrantyItem].self) ?? []
         
-        // Enforce Free Tier 20-Day Receipt Retention Auto-Purge
         enforceReceiptRetention()
-        
-        if pantryItems.isEmpty && receipts.isEmpty {
-            seedSampleData()
-        }
     }
     
     public func enforceReceiptRetention() {
@@ -231,7 +226,7 @@ public class StorageService: ObservableObject {
             let encoded = try encoder.encode(data)
             try encoded.write(to: url, options: [.atomic, .completeFileProtection])
         } catch {
-            print("Failed to save \(filename): \(error)")
+            // Persistence failures stay on-device; avoid console logging in App Store builds.
         }
     }
     
@@ -244,7 +239,6 @@ public class StorageService: ObservableObject {
             decoder.dateDecodingStrategy = .iso8601
             return try decoder.decode(T.self, from: data)
         } catch {
-            print("Failed to load \(filename): \(error)")
             return nil
         }
     }
@@ -343,5 +337,36 @@ public class StorageService: ObservableObject {
         )
         self.warranties = [sampleWarranty]
         saveWarranties()
+    }
+    
+    public func wipeAllUserData() {
+        for item in pantryItems {
+            NotificationService.shared.cancelNotifications(for: item.id)
+        }
+        pantryItems = []
+        receipts = []
+        warranties = []
+        ocrRules = []
+        recentlyDeletedItems = []
+        lastUndoAction = nil
+        savePantryItems()
+        saveReceipts()
+        saveWarranties()
+        saveOCRRules()
+    }
+    
+    public func exportPersonalDataCSV() -> String {
+        var lines = ["Type,Name,Details,Date,Amount"]
+        let formatter = ISO8601DateFormatter()
+        for item in pantryItems {
+            lines.append("Pantry,\"\(item.name.replacingOccurrences(of: "\"", with: "\"\""))\",\(item.location.rawValue),\(formatter.string(from: item.purchaseDate)),\(item.purchasePrice.map { String(format: "%.2f", $0) } ?? "")")
+        }
+        for receipt in receipts {
+            lines.append("Receipt,\"\(receipt.storeName.replacingOccurrences(of: "\"", with: "\"\""))\",\(receipt.itemCount) items,\(formatter.string(from: receipt.purchaseDate)),\(String(format: "%.2f", receipt.totalAmount))")
+        }
+        for warranty in warranties {
+            lines.append("Warranty,\"\(warranty.title.replacingOccurrences(of: "\"", with: "\"\""))\",\(warranty.storeName),\(formatter.string(from: warranty.purchaseDate)),")
+        }
+        return lines.joined(separator: "\n")
     }
 }

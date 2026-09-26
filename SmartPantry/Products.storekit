@@ -1,0 +1,88 @@
+{
+  "identifier" : "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21482046",
+      "localizations" : [
+
+      ],
+      "name" : "Smart Pantry Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "39.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "21482048",
+          "introductoryOffer" : {
+            "displayPrice" : "0.00",
+            "internalID" : "21482049",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Unlimited receipts, tax reports, warranty tracking, and food photos.",
+              "displayName" : "Smart Pantry Pro Annual",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.smartpantry.app.pro.annual",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Pro Annual",
+          "subscriptionGroupID" : "21482046",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "21482047",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited receipts, tax reports, warranty tracking, and food photos.",
+              "displayName" : "Smart Pantry Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.smartpantry.app.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "subscriptionGroupID" : "21482046",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

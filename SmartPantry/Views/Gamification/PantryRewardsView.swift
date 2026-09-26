@@ -139,7 +139,7 @@ public struct PantryRewardsView: View {
                             HStack {
                                 Image(systemName: "gift.fill")
                                     .foregroundColor(.purple)
-                                Text("Gift Card Rewards")
+                                Text("Achievement Rewards")
                                     .font(.headline)
                                 Spacer()
                                 if gamification.isMasterUnlocked {
@@ -158,8 +158,8 @@ public struct PantryRewardsView: View {
                             }
                             
                             Text(gamification.isMasterUnlocked
-                                 ? "Congratulations! As a Master Pantry Expert, you have earned store gift cards to Walgreens, Walmart, and Target:"
-                                 : "Reach Master Pantry Expert by logging receipts and auditing your pantry to unlock $10 store gift cards!")
+                                 ? "You unlocked in-app pantry badges for staying on top of receipts and cleanups. These are achievements only — not retailer gift cards."
+                                 : "Reach Master Pantry Expert by logging receipts and cleaning up expired items to unlock in-app achievement badges.")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                             
@@ -175,7 +175,7 @@ public struct PantryRewardsView: View {
                             }
                             
                             if !gamification.claimedGiftCards.isEmpty {
-                                Text("Claimed Gift Cards")
+                                Text("Claimed Badges")
                                     .font(.caption.weight(.bold))
                                     .foregroundColor(.secondary)
                                     .padding(.top, 8)
@@ -323,7 +323,7 @@ struct GiftCardRow: View {
             }
             
             VStack(alignment: .leading, spacing: 3) {
-                Text("\(card.storeName) \(card.amount) e-Gift Card")
+                Text("\(card.storeName)")
                     .font(.subheadline.weight(.bold))
                 Text(card.expiryNotice)
                     .font(.caption2)
@@ -370,7 +370,7 @@ struct ClaimedCardRow: View {
             }
             
             HStack {
-                Text("Code:")
+                Text("Badge:")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 Text(card.code)

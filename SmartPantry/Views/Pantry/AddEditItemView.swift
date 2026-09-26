@@ -18,6 +18,8 @@ public struct AddEditItemView: View {
     @State private var itemImageData: Data? = nil
     
     @State private var selectedPhotoItem: PhotosPickerItem? = nil
+    @State private var showPaywall = false
+    @ObservedObject private var subService = SubscriptionService.shared
     
     public init(viewModel: PantryViewModel, itemToEdit: PantryItem? = nil) {
         self.viewModel = viewModel
@@ -48,9 +50,18 @@ public struct AddEditItemView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 6) {
-                            PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
-                                Label(itemImageData == nil ? "Attach Food Photo" : "Change Photo", systemImage: "photo.badge.plus")
-                                    .font(.subheadline.weight(.semibold))
+                            if subService.isPro {
+                                PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
+                                    Label(itemImageData == nil ? "Attach Food Photo" : "Change Photo", systemImage: "photo.badge.plus")
+                                        .font(.subheadline.weight(.semibold))
+                                }
+                            } else {
+                                Button {
+                                    showPaywall = true
+                                } label: {
+                                    Label("Attach Food Photo (Pro)", systemImage: "lock.fill")
+                                        .font(.subheadline.weight(.semibold))
+                                }
                             }
                             
                             if itemImageData != nil {
@@ -168,6 +179,9 @@ public struct AddEditItemView: View {
                     self.notes = item.notes ?? ""
                     self.itemImageData = item.itemImageData
                 }
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
         }
     }

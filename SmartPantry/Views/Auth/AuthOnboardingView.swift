@@ -8,6 +8,7 @@ public struct AuthOnboardingView: View {
     @State private var password: String = ""
     @State private var fullName: String = ""
     @State private var showPassword: Bool = false
+    @State private var legalDocument: LegalDocument?
     
     public init() {}
     
@@ -32,7 +33,7 @@ public struct AuthOnboardingView: View {
                     }
                     .padding(.top, 24)
                     
-                    Text("SmartPantry")
+                    Text("Smart Pantry")
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .foregroundColor(.primary)
                     
@@ -47,7 +48,7 @@ public struct AuthOnboardingView: View {
                 HStack(spacing: 12) {
                     FeaturePill(icon: "doc.viewfinder.fill", text: "Receipt OCR")
                     FeaturePill(icon: "clock.badge.checkmark.fill", text: "FDA Expiry API")
-                    FeaturePill(icon: "gift.fill", text: "Gift Cards")
+                    FeaturePill(icon: "gift.fill", text: "Rewards")
                 }
                 .padding(.horizontal)
                 
@@ -160,18 +161,25 @@ public struct AuthOnboardingView: View {
                     }
                     .padding(.top, 4)
                     
-                    // Quick Demo Fill for Testing
                     Button {
-                        self.email = "alex@smartpantry.app"
-                        self.password = "pantry123"
-                        self.fullName = "Alex Hunter"
-                        handleAuthSubmit()
+                        authService.continueAsGuest()
                     } label: {
-                        Text("Instant Demo Sign In")
-                            .font(.caption.weight(.semibold))
+                        Text("Continue as Guest")
+                            .font(.subheadline.weight(.semibold))
                             .foregroundColor(.accentColor)
                     }
                     .padding(.top, 2)
+                    
+                    HStack(spacing: 16) {
+                        Button("Privacy Policy") { legalDocument = .privacy }
+                        Button("Terms of Use") { legalDocument = .terms }
+                    }
+                    .font(.caption.weight(.semibold))
+                    
+                    Text("By creating an account, continuing as guest, or subscribing, you agree to these terms. Data stays on this device.")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
                 }
                 .padding(20)
                 .background(Color(UIColor.secondarySystemGroupedBackground))
@@ -183,6 +191,12 @@ public struct AuthOnboardingView: View {
             }
         }
         .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        .sheet(item: $legalDocument) { doc in
+            NavigationView {
+                LegalDocumentView(document: doc)
+            }
+            .navigationViewStyle(.stack)
+        }
     }
     
     private func handleAuthSubmit() {

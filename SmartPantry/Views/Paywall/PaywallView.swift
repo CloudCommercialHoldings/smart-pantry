@@ -5,34 +5,13 @@ public struct PaywallView: View {
     @ObservedObject var subService = SubscriptionService.shared
     
     @State private var selectedPlanId: String = "annual"
+    @State private var showLegal: LegalDocument? = nil
     
     public init() {}
-    
-    let plans: [SubscriptionPlan] = [
-        SubscriptionPlan(
-            id: "annual",
-            title: "Annual Membership",
-            priceString: "$39.99 / year",
-            periodString: "Just $3.33 / month • Save 33%",
-            badge: "BEST VALUE",
-            isPopular: true,
-            trialDays: 3
-        ),
-        SubscriptionPlan(
-            id: "monthly",
-            title: "Monthly Membership",
-            priceString: "$4.99 / month",
-            periodString: "Flexible month-to-month billing",
-            badge: nil,
-            isPopular: false,
-            trialDays: nil
-        )
-    ]
     
     public var body: some View {
         ScrollView {
             VStack(spacing: 24) {
-                // Header Close Button
                 HStack {
                     Spacer()
                     Button {
@@ -42,11 +21,11 @@ public struct PaywallView: View {
                             .font(.system(size: 26))
                             .foregroundColor(.secondary)
                     }
+                    .accessibilityLabel("Close")
                 }
                 .padding(.horizontal)
                 .padding(.top, 12)
                 
-                // Hero Banner
                 VStack(spacing: 12) {
                     ZStack {
                         Circle()
@@ -61,73 +40,76 @@ public struct PaywallView: View {
                     Text("Smart Pantry Pro")
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                     
-                    Text("Unlock Unlimited Receipts, Tax Reports, Warranty Tracker & Food Photos")
+                    Text("Unlock unlimited receipts, tax reports, warranty tracking, and food photos.")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 24)
                 }
                 
-                // Plans Toggle Cards
                 VStack(spacing: 14) {
-                    ForEach(plans) { plan in
-                        PaywallPlanCard(
-                            plan: plan,
-                            isSelected: selectedPlanId == plan.id
-                        ) {
-                            selectedPlanId = plan.id
-                        }
-                    }
+                    planCard(
+                        id: "annual",
+                        title: "Annual Membership",
+                        fallbackPrice: "$39.99 / year",
+                        period: "Best value • billed yearly",
+                        badge: "BEST VALUE",
+                        trial: "3-day free trial"
+                    )
+                    planCard(
+                        id: "monthly",
+                        title: "Monthly Membership",
+                        fallbackPrice: "$4.99 / month",
+                        period: "Flexible month-to-month billing",
+                        badge: nil,
+                        trial: nil
+                    )
                 }
                 .padding(.horizontal)
                 
-                // Pro Features Checklist
                 VStack(alignment: .leading, spacing: 14) {
                     Text("Included with Pro:")
                         .font(.headline)
                         .padding(.horizontal, 4)
                     
-                    ProFeatureRow(icon: "doc.text.fill", color: .blue, title: "Unlimited Receipt Scanning", subtitle: "No 10-receipt cap for scanning & storing purchases")
-                    ProFeatureRow(icon: "clock.arrow.circlepath", color: .purple, title: "Lifetime Receipt Retention", subtitle: "Never auto-remove receipts after 20 days")
-                    ProFeatureRow(icon: "square.and.arrow.up.fill", color: .orange, title: "Tax & Expense Reports", subtitle: "Export grocery tax deductions by quarter or year")
-                    ProFeatureRow(icon: "shield.checkerboard", color: .red, title: "Appliance Warranty Tracker", subtitle: "Track warranties, claim notes & receipt proofs")
-                    ProFeatureRow(icon: "camera.fill", color: .green, title: "Attach Food Pictures", subtitle: "Snap & store actual food pictures directly to items")
-                    ProFeatureRow(icon: "cloud.fill", color: .teal, title: "Cloud Backup & Advanced Search", subtitle: "Sync across devices & search by store, item, or date")
+                    ProFeatureRow(icon: "doc.text.fill", color: .blue, title: "Unlimited Receipt Scanning", subtitle: "No 10-receipt cap for scanning and storing purchases")
+                    ProFeatureRow(icon: "clock.arrow.circlepath", color: .purple, title: "Lifetime Receipt Retention", subtitle: "Keep receipts beyond the free 20-day window")
+                    ProFeatureRow(icon: "square.and.arrow.up.fill", color: .orange, title: "Tax & Expense Reports", subtitle: "Export grocery spending by quarter or year")
+                    ProFeatureRow(icon: "shield.checkerboard", color: .red, title: "Appliance Warranty Tracker", subtitle: "Track warranties, claim notes, and receipt proofs")
+                    ProFeatureRow(icon: "camera.fill", color: .green, title: "Attach Food Pictures", subtitle: "Save photos directly on pantry items")
+                    ProFeatureRow(icon: "magnifyingglass", color: .teal, title: "Advanced Search & History", subtitle: "Filter receipts by store, item, or date")
                 }
                 .padding()
                 .background(Color(UIColor.secondarySystemGroupedBackground))
                 .cornerRadius(20)
                 .padding(.horizontal)
                 
-                // Call To Action Buttons
+                if let error = subService.purchaseError {
+                    Text(error)
+                        .font(.caption.weight(.medium))
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                }
+                
                 VStack(spacing: 12) {
-                    // PayPal Option Button
                     Button {
-                        subService.openPayPalCheckout()
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: "creditcard.circle.fill")
-                                .font(.title3)
-                            Text("Subscribe via PayPal")
-                                .font(.headline.weight(.bold))
+                        Task {
+                            await subService.purchase(planID: selectedPlanId)
+                            if subService.isPro {
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(Color(red: 0.0, green: 0.47, blue: 0.8))
-                        .cornerRadius(16)
-                    }
-                    
-                    // App Store Free Trial / Subscribe Button
-                    Button {
-                        subService.activateProSubscription()
-                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         HStack(spacing: 8) {
-                            Image(systemName: "applelogo")
-                                .font(.title3)
-                            Text(selectedPlanId == "annual" ? "Start 3-Day Free Trial" : "Subscribe with Apple Pay")
+                            if subService.isPurchasing || subService.isLoadingProducts {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            } else {
+                                Image(systemName: "applelogo")
+                                    .font(.title3)
+                            }
+                            Text(subscribeButtonTitle)
                                 .font(.headline.weight(.bold))
                         }
                         .foregroundColor(.white)
@@ -136,11 +118,13 @@ public struct PaywallView: View {
                         .background(Color.accentColor)
                         .cornerRadius(16)
                     }
+                    .disabled(subService.isPurchasing)
                     
-                    // Restore Purchases
                     Button("Restore Purchases") {
-                        subService.restorePurchases { _ in
-                            presentationMode.wrappedValue.dismiss()
+                        subService.restorePurchases { success in
+                            if success {
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }
                     }
                     .font(.subheadline.weight(.medium))
@@ -149,16 +133,55 @@ public struct PaywallView: View {
                 }
                 .padding(.horizontal)
                 
-                // Footer legal text
-                Text("Cancel anytime in Settings. Payment will be charged to your Apple ID / PayPal account at confirmation of purchase.")
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-                    .padding(.bottom, 24)
+                VStack(spacing: 8) {
+                    Text("Payment is charged to your Apple ID at confirmation. Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period. Manage or cancel in iPhone Settings → Apple ID → Subscriptions.")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                    
+                    HStack(spacing: 16) {
+                        Button("Privacy Policy") { showLegal = .privacy }
+                        Button("Terms of Use") { showLegal = .terms }
+                    }
+                    .font(.caption.weight(.semibold))
+                }
+                .padding(.horizontal, 28)
+                .padding(.bottom, 24)
             }
         }
         .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
+        .task {
+            await subService.loadProducts()
+        }
+        .sheet(item: $showLegal) { doc in
+            NavigationView {
+                LegalDocumentView(document: doc)
+            }
+        }
+    }
+    
+    private var subscribeButtonTitle: String {
+        if selectedPlanId == "annual" {
+            return "Start 3-Day Free Trial"
+        }
+        return "Subscribe"
+    }
+    
+    private func planCard(id: String, title: String, fallbackPrice: String, period: String, badge: String?, trial: String?) -> some View {
+        let product = subService.product(for: id)
+        let price = product?.displayPrice ?? fallbackPrice
+        let plan = SubscriptionPlan(
+            id: id,
+            title: title,
+            priceString: product == nil ? fallbackPrice : "\(price) / \(id == "annual" ? "year" : "month")",
+            periodString: period,
+            badge: badge,
+            isPopular: id == "annual",
+            trialDays: trial == nil ? nil : 3
+        )
+        return PaywallPlanCard(plan: plan, isSelected: selectedPlanId == id) {
+            selectedPlanId = id
+        }
     }
 }
 

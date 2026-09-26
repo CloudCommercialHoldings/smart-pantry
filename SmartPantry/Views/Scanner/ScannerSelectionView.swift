@@ -107,13 +107,13 @@ public struct ScannerSelectionView: View {
                     }
                     .padding(.horizontal)
                     
-                    // Demo Simulator Quick Test Section
+                    #if DEBUG
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Instant Demo Receipts (Simulator)")
+                        Text("Developer Sample Receipts")
                             .font(.headline)
                             .padding(.horizontal)
                         
-                        Text("Tap any sample store receipt to test Vision OCR, abbreviation normalization, confidence flagging, and duplicate detection:")
+                        Text("Visible in Debug builds only. These are not shown in the App Store build.")
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .padding(.horizontal)
@@ -140,6 +140,7 @@ public struct ScannerSelectionView: View {
                         .padding(.horizontal)
                     }
                     .padding(.top, 8)
+                    #endif
                 }
                 .padding(.vertical)
             }
