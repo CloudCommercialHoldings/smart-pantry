@@ -1,0 +1,42 @@
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/SmartPantryApp.swift":
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SmartPantryApp.d"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SmartPantryApp.swiftconstvalues"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SmartPantryApp.swiftdeps"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SmartPantryApp.dia"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SmartPantryApp.o"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Models/StorageLocation.swift":
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/StorageLocation.d"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/StorageLocation.swiftconstvalues"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/StorageLocation.swiftdeps"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/StorageLocation.dia"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/StorageLocation.o"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Models/ReceiptRecord.swift":
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ReceiptRecord.swiftconstvalues"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ReceiptRecord.dia"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ReceiptRecord.o"
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ReceiptRecord.d"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ReceiptRecord.swiftdeps"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Models/OCRCorrectionRule.swift":
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/OCRCorrectionRule.d"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/OCRCorrectionRule.swiftdeps"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/OCRCorrectionRule.dia"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/OCRCorrectionRule.swiftconstvalues"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/OCRCorrectionRule.o"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Models/SpendingAnalytics.swift":
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SpendingAnalytics.dia"
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SpendingAnalytics.d"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SpendingAnalytics.o"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SpendingAnalytics.swiftdeps"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/SpendingAnalytics.swiftconstvalues"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Models/PantryItem.swift":
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/PantryItem.dia"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/PantryItem.o"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/PantryItem.swiftdeps"
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/PantryItem.d"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/PantryItem.swiftconstvalues"
+"/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Models/ItemCategory.swift":
+  dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ItemCategory.d"
+  object: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ItemCategory.o"
+  const-values: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ItemCategory.swiftconstvalues"
+  swift-dependencies: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ItemCategory.swiftdeps"
+  diagnostics: "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/.build/DerivedData/Build/Intermediates.noindex/SmartPantry.build/Debug/SmartPantry.build/Objects-normal/x86_64/ItemCategory.dia"

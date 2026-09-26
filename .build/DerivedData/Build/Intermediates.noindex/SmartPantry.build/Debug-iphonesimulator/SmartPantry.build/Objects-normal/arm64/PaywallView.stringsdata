@@ -1,0 +1,80 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Paywall/PaywallView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Cancel anytime in Settings. Payment will be charged to your Apple ID / PayPal account at confirmation of purchase.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 153
+        }
+      },
+      {
+        "comment": "",
+        "key": "Smart Pantry Pro",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 61
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unlock Unlimited Receipts, Tax Reports, Warranty Tracker & Food Photos",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Included with Pro:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Restore Purchases",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 141
+        }
+      },
+      {
+        "comment": "",
+        "key": "Subscribe via PayPal",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start 3-Day Free Trial",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "Subscribe with Apple Pay",
+        "location": {
+          "startingColumn": 90,
+          "startingLine": 130
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld-Day Free Trial",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 209
+        }
+      }
+    ]
+  },
+  "version": 1
+}

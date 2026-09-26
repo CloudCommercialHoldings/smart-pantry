@@ -26,7 +26,7 @@
 		A10000012C95B01700000017 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01700000017 /* AnalyticsViewModel.swift */; };
 		A10000012C95B01800000018 /* PantryItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01800000018 /* PantryItemRowView.swift */; };
 		A10000012C95B01900000019 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A01900000019 /* ItemDetailView.swift */; };
-		A10000012C95B02000000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02000000020 /* AddEditItemView.swift */; };
+		A10000012C95B0200000020 /* AddEditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0200000020 /* AddEditItemView.swift */; };
 		A10000012C95B02100000021 /* PantryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02100000021 /* PantryListView.swift */; };
 		A10000012C95B02200000022 /* DocumentCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02200000022 /* DocumentCameraView.swift */; };
 		A10000012C95B02300000023 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02300000023 /* BarcodeScannerView.swift */; };
@@ -36,7 +36,7 @@
 		A10000012C95B02700000027 /* ReceiptFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02700000027 /* ReceiptFilterView.swift */; };
 		A10000012C95B02800000028 /* ReceiptDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02800000028 /* ReceiptDetailView.swift */; };
 		A10000012C95B02900000029 /* ReceiptHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A02900000029 /* ReceiptHistoryView.swift */; };
-		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03000000030 /* CategoryBreakdownChart.swift */; };
+		A10000012C95B0300000030 /* CategoryBreakdownChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0300000030 /* CategoryBreakdownChart.swift */; };
 		A10000012C95B03100000031 /* SpendingAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03100000031 /* SpendingAnalyticsView.swift */; };
 		A10000012C95B03200000032 /* ExpiringSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03200000032 /* ExpiringSoonView.swift */; };
 		A10000012C95B03300000033 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A03300000033 /* MainTabView.swift */; };
@@ -48,6 +48,14 @@
 		A10000012C95B0400000040 /* WarrantyTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A0400000040 /* WarrantyTrackerView.swift */; };
 		A10000012C95B04100000041 /* AddWarrantyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04100000041 /* AddWarrantyView.swift */; };
 		A10000012C95B04200000042 /* TaxReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04200000042 /* TaxReportView.swift */; };
+		A10000012C95B04300000043 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04300000043 /* AuthService.swift */; };
+		A10000012C95B04400000044 /* FoodShelfLifeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04400000044 /* FoodShelfLifeAPIService.swift */; };
+		A10000012C95B04500000045 /* GamificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04500000045 /* GamificationService.swift */; };
+		A10000012C95B04600000046 /* AuthOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04600000046 /* AuthOnboardingView.swift */; };
+		A10000012C95B04700000047 /* FDAFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04700000047 /* FDAFactsView.swift */; };
+		A10000012C95B04800000048 /* RecentlyDeletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04800000048 /* RecentlyDeletedView.swift */; };
+		A10000012C95B04900000049 /* PantryRewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A04900000049 /* PantryRewardsView.swift */; };
+		A10000012C95B05000000050 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012C95A05000000050 /* ConfettiView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +102,14 @@
 		A10000012C95A0400000040 /* WarrantyTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warranty/WarrantyTrackerView.swift; sourceTree = "<group>"; };
 		A10000012C95A04100000041 /* AddWarrantyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warranty/AddWarrantyView.swift; sourceTree = "<group>"; };
 		A10000012C95A04200000042 /* TaxReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tax/TaxReportView.swift; sourceTree = "<group>"; };
+		A10000012C95A04300000043 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		A10000012C95A04400000044 /* FoodShelfLifeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodShelfLifeAPIService.swift; sourceTree = "<group>"; };
+		A10000012C95A04500000045 /* GamificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationService.swift; sourceTree = "<group>"; };
+		A10000012C95A04600000046 /* AuthOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth/AuthOnboardingView.swift; sourceTree = "<group>"; };
+		A10000012C95A04700000047 /* FDAFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/FDAFactsView.swift; sourceTree = "<group>"; };
+		A10000012C95A04800000048 /* RecentlyDeletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry/RecentlyDeletedView.swift; sourceTree = "<group>"; };
+		A10000012C95A04900000049 /* PantryRewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamification/PantryRewardsView.swift; sourceTree = "<group>"; };
+		A10000012C95A05000000050 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common/ConfettiView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +178,9 @@
 				A10000012C95A01200000012 /* NotificationService.swift */,
 				A10000012C95A01300000013 /* StorageService.swift */,
 				A10000012C95A03800000038 /* SubscriptionService.swift */,
+				A10000012C95A04300000043 /* AuthService.swift */,
+				A10000012C95A04400000044 /* FoodShelfLifeAPIService.swift */,
+				A10000012C95A04500000045 /* GamificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -200,6 +219,11 @@
 				A10000012C95A0400000040 /* WarrantyTrackerView.swift */,
 				A10000012C95A04100000041 /* AddWarrantyView.swift */,
 				A10000012C95A04200000042 /* TaxReportView.swift */,
+				A10000012C95A04600000046 /* AuthOnboardingView.swift */,
+				A10000012C95A04700000047 /* FDAFactsView.swift */,
+				A10000012C95A04800000048 /* RecentlyDeletedView.swift */,
+				A10000012C95A04900000049 /* PantryRewardsView.swift */,
+				A10000012C95A05000000050 /* ConfettiView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +337,14 @@
 				A10000012C95B0400000040 /* WarrantyTrackerView.swift in Sources */,
 				A10000012C95B04100000041 /* AddWarrantyView.swift in Sources */,
 				A10000012C95B04200000042 /* TaxReportView.swift in Sources */,
+				A10000012C95B04300000043 /* AuthService.swift in Sources */,
+				A10000012C95B04400000044 /* FoodShelfLifeAPIService.swift in Sources */,
+				A10000012C95B04500000045 /* GamificationService.swift in Sources */,
+				A10000012C95B04600000046 /* AuthOnboardingView.swift in Sources */,
+				A10000012C95B04700000047 /* FDAFactsView.swift in Sources */,
+				A10000012C95B04800000048 /* RecentlyDeletedView.swift in Sources */,
+				A10000012C95B04900000049 /* PantryRewardsView.swift in Sources */,
+				A10000012C95B05000000050 /* ConfettiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,72 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Warranty/WarrantyTrackerView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Warranty Tracker",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search appliance or store...",
+        "location": {
+          "startingColumn": 48,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Appliance Warranties Tracked",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log kitchen appliances, hardware, and high-value purchases with warranty expiration dates and proof of purchase.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "Add Warranty (Pro)",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Purchased at %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 115
+        }
+      },
+      {
+        "comment": "",
+        "key": "Expired",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 123
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lldd Left",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 123
+        }
+      }
+    ]
+  },
+  "version": 1
+}

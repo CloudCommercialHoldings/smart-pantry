@@ -1,0 +1,40 @@
+{
+  "source": "/Users/kloudkessie/Desktop/Smart-Pantry/smart-pantry/SmartPantry/Views/Expiry/ExpiringSoonView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Expiring Soon",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "All Items Fresh!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
+        "key": "No items are expiring in the next 3 days. Excellent job managing your pantry!",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Items Requiring Attention (%lld)",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 34
+        }
+      }
+    ]
+  },
+  "version": 1
+}

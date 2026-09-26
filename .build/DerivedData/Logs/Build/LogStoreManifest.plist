@@ -6,7 +6,7 @@
 	<integer>11</integer>
 	<key>logs</key>
 	<dict>
-		<key>9D3CF5CF-907D-4755-A669-6E6368066C8E</key>
+		<key>5F50E74E-495C-4C57-8A2E-368C075B1E26</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>9D3CF5CF-907D-4755-A669-6E6368066C8E.xcactivitylog</string>
+			<string>5F50E74E-495C-4C57-8A2E-368C075B1E26.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -25,11 +25,11 @@
 				<key>totalNumberOfAnalyzerIssues</key>
 				<integer>0</integer>
 				<key>totalNumberOfErrors</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>totalNumberOfTestFailures</key>
 				<integer>0</integer>
 				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>SmartPantry project</string>
@@ -40,13 +40,55 @@
 			<key>signature</key>
 			<string>Building project SmartPantry with scheme SmartPantry</string>
 			<key>timeStartedRecording</key>
-			<real>811264216.15971804</real>
+			<real>812087657.92666602</real>
 			<key>timeStoppedRecording</key>
-			<real>811264227.16277695</real>
+			<real>812087664.43105996</real>
 			<key>title</key>
 			<string>Building project SmartPantry with scheme SmartPantry</string>
 			<key>uniqueIdentifier</key>
-			<string>9D3CF5CF-907D-4755-A669-6E6368066C8E</string>
+			<string>5F50E74E-495C-4C57-8A2E-368C075B1E26</string>
+		</dict>
+		<key>E2652D35-02F1-4ED7-A8C7-2F5C668DC2D8</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E2652D35-02F1-4ED7-A8C7-2F5C668DC2D8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>3</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>SmartPantry project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SmartPantry</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project SmartPantry with scheme SmartPantry</string>
+			<key>timeStartedRecording</key>
+			<real>812075671.06057096</real>
+			<key>timeStoppedRecording</key>
+			<real>812075677.33059204</real>
+			<key>title</key>
+			<string>Building project SmartPantry with scheme SmartPantry</string>
+			<key>uniqueIdentifier</key>
+			<string>E2652D35-02F1-4ED7-A8C7-2F5C668DC2D8</string>
 		</dict>
 	</dict>
 </dict>
